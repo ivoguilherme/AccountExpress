@@ -17,15 +17,16 @@ select {
         box-shadow: 0 0 0 0.2rem rgba(28, 201, 165, .25) !important;
     }
 
-    option {
-    }
+option {
+}
+
     option:focus {
         background-color: red !important;
     }
 
-    textarea {
-        min-height: 80px !important;
-    }
+textarea {
+    min-height: 80px !important;
+}
 
 nav {
     background-color: #545454;
@@ -61,6 +62,7 @@ nav .navbar-brand {
 
 aside {
     background-color: #ececec;
+    box-shadow: 0px 0px 5px -3px #333;
     font-weight: 500;
     position: fixed;
     width: 200px;
@@ -254,7 +256,7 @@ aside {
         }
 
     .wrapper .title-wrapper {
-        padding-bottom: 15px;
+        padding-bottom: 30px;
     }
 
         .wrapper .title-wrapper h4 {
@@ -337,4 +339,19 @@ aside {
 
     .btn.default-btn:hover {
         opacity: 1;
+    }
+
+    .box-btn {
+        text-align: right;
+    }
+.btn.btn-success {
+    background-color: #18af8f;
+    border-color: #18af8f;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+    .btn.btn-success:hover {
+        transform: scale(1.05);
     }

@@ -1,8 +1,155 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cadastrar Cliente | ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="title-wrapper">
+            <h4>Cadastrar Cliente</h4>
+        </div>
 
+        <form>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="box">
+                        <div class="title-box">
+                            <span>Informações Pessoais</span>
+                        </div>
+                        <div class="content-box">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="customer-name">Nome</label>
+                                        <input type="text" class="form-control" id="customer-name" name="customer-name">
+                                        <small class="form-text text-muted">Imforme o nome do cliente</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="customer-email">E-mail</label>
+                                        <input type="email" class="form-control" id="customer-email" name="customer-email">
+                                        <small class="form-text text-muted">Imforme endereço de e-mail</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="data-compra-perfil-fb">Data de Nascimento</label>
+                                        <input type="date" class="form-control" id="data-compra-perfil-fb" name="data-compra-perfil-fb">
+                                        <small class="form-text text-muted">Imforme a data de nascimento</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="customer-cpf">CPF</label>
+                                        <input type="number" class="form-control" id="customer-cpf" name="customer-cpf">
+                                        <small class="form-text text-muted">Imforme o número de CPF</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="customer-rg">RG</label>
+                                        <input type="number" class="form-control" id="customer-rg" name="customer-rg">
+                                        <small class="form-text text-muted">Imforme o número do RG</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="customer-cnh">CNH</label>
+                                        <input type="number" class="form-control" id="customer-cnh" name="customer-cnh">
+                                        <small class="form-text text-muted">Imforme o número da CNH</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="celular-perfil-fb">Celular</label>
+                                        <input type="number" class="form-control" id="celular-perfil-fb" name="celular-perfil-fb">
+                                        <small class="form-text text-muted">Imforme o número de celular</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="title-box">
+                            <span>Informações de Endereço</span>
+                        </div>
+                        <div class="content-box">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="customer-address">Endereço</label>
+                                        <input type="text" class="form-control" id="customer-address" name="customer-address">
+                                        <small class="form-text text-muted">Imforme o endereço</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="customer-address-number">Número</label>
+                                        <input type="number" class="form-control" id="customer-address-number" name="customer-address-number">
+                                        <small class="form-text text-muted">Imforme o número</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="customer-complement">Complemento</label>
+                                        <input type="number" class="form-control" id="customer-complement" name="customer-complement">
+                                        <small class="form-text text-muted">Imforme um complemento</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="customer-district">Bairro</label>
+                                        <input type="text" class="form-control" id="customer-district" name="customer-district">
+                                        <small class="form-text text-muted">Imforme o endereço</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="customer-city">Cidade</label>
+                                        <input type="number" class="form-control" id="customer-city" name="customer-city">
+                                        <small class="form-text text-muted">Imforme a cidade</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="customer-state">Estado</label>
+                                        <select id="customer-state" class="form-control" name="customer-state">
+                                            <option>Minas Gerais</option>
+                                            <option>São Paulo</option>
+                                            <option>Rio de Janeiro</option>
+                                        </select>
+                                        <small class="form-text text-muted">Selecione o estado</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="customer-cep">CEP</label>
+                                        <input type="number" class="form-control" id="customer-cep" name="customer-cep">
+                                        <small class="form-text text-muted">Imforme o CEP</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-btn">
+                        <button type="submit" class="btn btn-success">Cadastrar Informações</button>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

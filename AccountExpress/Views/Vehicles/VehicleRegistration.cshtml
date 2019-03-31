@@ -1,0 +1,213 @@
+﻿
+@{
+    ViewData["Title"] = "Veículos | ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="title-wrapper">
+            <h4>Cadastrar Veículo</h4>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="box mb-0">
+                    <div class="title-box">
+                        <span>Características do Veículo</span>
+                    </div>
+                    <div class="content-box">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="vehicle-brand">Marca</label>
+                                        <select id="vehicle-brand" class="form-control" name="vehicle-brand">
+                                            <option>Wolkswagen</option>
+                                            <option>Chevrolet</option>
+                                            <option>Fiat</option>
+                                        </select>
+                                        <small class="form-text text-muted">Selecione a marca do veículo</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="vehicle-model">Modelo</label>
+                                        <input type="text" class="form-control" id="vehicle-model" name="vehicle-model">
+                                        <small class="form-text text-muted">Imforme o modelo do veículo</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="vehicle-type">Tipo</label>
+                                        <select id="vehicle-type" class="form-control" name="vehicle-type">
+                                            <option>Passeio</option>
+                                            <option>Esportivo</option>
+                                            <option>Luxo</option>
+                                        </select>
+                                        <small class="form-text text-muted">Selecione o tipo de veículo</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="vehicle-doors">Portas</label>
+                                        <select id="vehicle-doors" class="form-control" name="vehicle-doors">
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
+                                        <small class="form-text text-muted">Quantidade de Portas</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="vehicle-color">Cor</label>
+                                        <select id="vehicle-color" class="form-control" name="vehicle-color">
+                                            <option>Branco</option>
+                                            <option>Preto</option>
+                                            <option>Prata</option>
+                                            <option>Vermelho</option>
+                                            <option>Azul</option>
+                                            <option>Verde</option>
+                                            <option>Amarelo</option>
+                                            <option>Rosa</option>
+                                        </select>
+                                        <small class="form-text text-muted">Selecione a Cor</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="vehicle-fuel">Combustível</label>
+                                        <select id="vehicle-fuel" class="form-control" name="vehicle-fuel">
+                                            <option>Gasolina</option>
+                                            <option>Álcool</option>
+                                            <option>Flex</option>
+                                        </select>
+                                        <small class="form-text text-muted">Selecione o Combustível</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="vehicle-gearbox">Câmbio</label>
+                                        <select id="vehicle-gearbox" class="form-control" name="vehicle-gearbox">
+                                            <option>Automático</option>
+                                            <option>Manual</option>
+                                        </select>
+                                        <small class="form-text text-muted">Selecione o Câmbio</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="vehicle-steering">Direção</label>
+                                        <select id="vehicle-steering" class="form-control" name="vehicle-steering">
+                                            <option>Hidráulica</option>
+                                            <option>Elétrica</option>
+                                        </select>
+                                        <small class="form-text text-muted">Selecione a Direção</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="vehicle-manufacturing">Fabricação</label>
+                                        <select id="vehicle-manufacturing" class="form-control" name="vehicle-manufacturing">
+                                            <option>2015</option>
+                                            <option>2016</option>
+                                            <option>2017</option>
+                                            <option>2018</option>
+                                            <option>2019</option>
+                                        </select>
+                                        <small class="form-text text-muted">Ano de Fabricação</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="vehicle-mileage">Quilometragem</label>
+                                        <input type="text" class="form-control" id="vehicle-mileage" name="vehicle-mileage">
+                                        <small class="form-text text-muted">Imforme o tipo de combustível</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="vehicle-plate">Placa</label>
+                                        <input type="text" class="form-control" id="vehicle-plate" name="vehicle-plate">
+                                        <small class="form-text text-muted">Imforme a Placa</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="vehicle-chassis">Chassi</label>
+                                        <input type="text" class="form-control" id="vehicle-chassis" name="vehicle-chassis">
+                                        <small class="form-text text-muted">Imforme o número do Chassi do veículo</small>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="vehicle-observations">Observações</label>
+                                        <textarea class="form-control" id="vehicle-observations" name="vehicle-observations" placeholder="Informe aqui observações relevantes sobre o veículo, como por exemplo: Trava Elétrica, Alarme, Som, etc."></textarea>
+                                        <small class="form-text text-muted">Imforme o tipo de combustível</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            @*
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="title-box">
+                            <span>Novas informações de acesso</span>
+                        </div>
+                        <div class="content-box">
+                            <form>
+                                <div class="form-group">
+                                    <label for="email-perfil-fb">E-mail</label>
+                                    <input type="email" class="form-control" id="email-perfil-fb" name="email-perfil-fb">
+                                    <small class="form-text text-muted">Imforme o novo e-mail</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="senha-perfil-fb">Senha</label>
+                                    <input type="password" class="form-control" id="senha-perfil-fb" name="senha-perfil-fb">
+                                    <small class="form-text text-muted">Imforme a nova senha</small>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="title-box">
+                            <span>Antigas informações de acesso</span>
+                        </div>
+                        <div class="content-box">
+                            <form>
+                                <div class="form-group">
+                                    <label for="email-perfil-fb">E-mail</label>
+                                    <input type="email" class="form-control" id="email-perfil-fb" name="email-perfil-fb">
+                                    <small class="form-text text-muted">Imforme o antigo e-mail</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="senha-perfil-fb">Senha</label>
+                                    <input type="password" class="form-control" id="senha-perfil-fb" name="senha-perfil-fb">
+                                    <small class="form-text text-muted">Imforme a antiga senha</small>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            *@
+        </div>
+    </div>
+</div>

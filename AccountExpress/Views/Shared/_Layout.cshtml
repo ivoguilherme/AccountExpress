@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar navbar-expand-lg">
         <div id="logo">
-            <a class="navbar-brand" href="/home/index">AccountExpress</a>
+            <a class="navbar-brand" href="@Url.Action("Index", "Overview", null)">AccountExpress</a>
         </div>
     </nav>
     <aside>
@@ -26,38 +26,65 @@
                 <span>Ivo Guilherme</span>
             </div>
         </div>
-        <ul>
-            <li><a href="/home/index"><span class="moldure"><i class="far fa-chart-bar"></i></span>Visão Geral</a></li>
-            <li data-toggle="collapse" data-target="#facebook-nav" class="collapsed active">
-                <a href="#">
-                    <span class="moldure"><i class="far fa-building"></i></span>
-                    <span class="icon"><i class="fas fa-angle-left"></i></span>
-                    Bancos
-                </a>
-            </li>
-            <ul class="sub-menu collapse" id="facebook-nav">
-                <li><a href="http://localhost/crm/facebook/cadastro.php">Cadastrar</a></li>
-                <li><a href="http://localhost/crm/facebook/cadastro.php">Consultar</a></li>
-            </ul>
+        <div class="navigation">
+            <ul>
+                <li>
+                    <a href="@Url.Action("Index", "Overview", null)">
+                        <span class="moldure">
+                            <i class="far fa-chart-bar"></i>
+                        </span>
+                        Visão Geral
+                    </a>
+                </li>
+               @* <li>
+                    <a href="@Url.Action("VehicleRegistration", "Vehicles", null)">
+                        <span class="moldure">
+                            <i class="far fa-id-card"></i>
+                        </span>
+                        Veículos
+                    </a>
+                </li>*@
 
-            <li data-toggle="collapse" data-target="#users-nav" class="collapsed active">
-                <a href="#">
-                    <span class="moldure"><i class="far fa-user"></i></span>
-                    <span class="icon"><i class="fas fa-angle-left"></i></span>
-                    Contas
-                </a>
-            </li>
-            <ul class="sub-menu collapse" id="users-nav">
-                <li><a href="#">Gerenciadores de Perfis</a></li>
-                <li><a href="#">Usuários do Sistema</a></li>
+                <li data-toggle="collapse" data-target="#facebook-nav" class="collapsed active">
+                    <a href="#">
+                        <span class="moldure"><i class="far fa-id-card"></i></span>
+                        <span class="icon"><i class="fas fa-angle-left"></i></span>
+                        Veículos
+                    </a>
+                </li>
+                <ul class="sub-menu collapse" id="facebook-nav">
+                    <li><a href="@Url.Action("VehicleRegistration", "Vehicles", null)">Cadastrar Veículos</a></li>
+                    <li><a href="@Url.Action("RegisterBank", "Bank", null)">Gerenciar Veículos</a></li>
+                </ul>
+
+                <li data-toggle="collapse" data-target="#users-nav" class="collapsed active">
+                    <a href="#">
+                        <span class="moldure"><i class="far fa-user"></i></span>
+                        <span class="icon"><i class="fas fa-angle-left"></i></span>
+                        Clientes
+                    </a>
+                </li>
+                <ul class="sub-menu collapse" id="users-nav">
+                    <li><a href="@Url.Action("CustomerRegistration", "Customers", null)">Cadastrar Clientes</a></li>
+                    <li><a href="#">Gerenciar Clientes</a></li>
+                </ul>
+                <li>
+                    <a href="@Url.Action("Index", "Settings", null)">
+                        <span class="moldure">
+                            <i class="far fa-sun"></i>
+                        </span>
+                        Configurações
+                    </a>
+                </li>
             </ul>
-            <li><a href="#"><span class="moldure"><i class="far fa-sun"></i></span>Configurações</a></li>
-        </ul>
-        <div id="exit">
-            <a href="#"><span>Sair</span><i class="fas fa-power-off"></i></a>
+        </div>
+        <div class="box-exit">
+            <div id="exit">
+                <a href="#"><span>Sair</span><i class="fas fa-power-off"></i></a>
+            </div>
         </div>
     </aside>
-    @RenderBody();
+    @RenderBody()
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -76,79 +103,79 @@
 
 
 @*
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - AccountExpress</title>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - AccountExpress</title>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
-</head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">AccountExpress</a>
+        <environment include="Development">
+            <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.css" />
+        </environment>
+        <environment exclude="Development">
+            <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+                  asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+                  asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+            <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        </environment>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">AccountExpress</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
-                <partial name="_LoginPartial" />
-            </div>
+        </nav>
+
+        <partial name="_CookieConsentPartial" />
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; 2019 - AccountExpress</p>
+            </footer>
         </div>
-    </nav>
 
-    <partial name="_CookieConsentPartial" />
+        <environment include="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+        </environment>
+        <environment exclude="Development">
+            <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                    asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                    asp-fallback-test="window.jQuery"
+                    crossorigin="anonymous"
+                    integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+            </script>
+            <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                    crossorigin="anonymous"
+                    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+            </script>
+            <script src="~/js/site.min.js" asp-append-version="true"></script>
+        </environment>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2019 - AccountExpress</p>
-        </footer>
-    </div>
-
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
-
-    @RenderSection("Scripts", required: false)
-</body>
-</html>
-    *@
+        @RenderSection("Scripts", required: false)
+    </body>
+    </html>
+*@

@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using AccountExpress.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using AccountExpress.Models;
 
 namespace AccountExpress
 {
@@ -35,8 +36,8 @@ namespace AccountExpress
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection"), builder =>
+                    builder.MigrationsAssembly("AccountExpress")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 

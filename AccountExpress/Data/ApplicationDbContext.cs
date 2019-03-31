@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using AccountExpress.Models;
 
 namespace AccountExpress.Data
 {
@@ -12,5 +10,7 @@ namespace AccountExpress.Data
             : base(options)
         {
         }
+
+        public DbSet<Customers> Customers { get; set; }
     }
 }

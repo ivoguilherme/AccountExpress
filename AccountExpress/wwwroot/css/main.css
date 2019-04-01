@@ -136,13 +136,14 @@ aside {
         }
 
     aside ul li a span.icon {
+        opacity: 0;
         display: inline-block;
-        color: #fff;
+        color: #545454;
         width: 25px;
         height: 25px;
         text-align: center;
         position: absolute;
-        right: -25px;
+        right: 10px;
         transition: cubic-bezier(0.4, 0, 1, 1) 0.2s;
     }
 
@@ -152,7 +153,8 @@ aside {
 
     aside ul li a:hover span.icon,
     aside ul li.nav-active span.icon {
-        right: 10px;
+        opacity: 1;
+        color: #fff;
     }
 
     aside ul ul {
@@ -223,7 +225,6 @@ aside {
     position: fixed;
     top: 40px;
     left: 200px;
-    overflow-y: scroll;
     width: calc(100% - 200px);
     height: calc(100% - 40px);
 }

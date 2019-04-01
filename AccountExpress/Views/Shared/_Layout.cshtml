@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/simplebar.css">
     <link rel="stylesheet" href="~/css/main.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">
     <title>@ViewData["Title"]AccountExpress</title>
 </head>
 <body>
@@ -26,7 +27,7 @@
                 <span>Ivo Guilherme</span>
             </div>
         </div>
-        <div class="navigation">
+        <div data-simplebar class="navigation">
             <ul>
                 <li>
                     <a href="@Url.Action("Index", "Overview", null)">
@@ -36,14 +37,14 @@
                         Visão Geral
                     </a>
                 </li>
-               @* <li>
-                    <a href="@Url.Action("VehicleRegistration", "Vehicles", null)">
-                        <span class="moldure">
-                            <i class="far fa-id-card"></i>
-                        </span>
-                        Veículos
-                    </a>
-                </li>*@
+                @* <li>
+                        <a href="@Url.Action("VehicleRegistration", "Vehicles", null)">
+                            <span class="moldure">
+                                <i class="far fa-id-card"></i>
+                            </span>
+                            Veículos
+                        </a>
+                    </li>*@
 
                 <li data-toggle="collapse" data-target="#facebook-nav" class="collapsed active">
                     <a href="#">
@@ -69,6 +70,14 @@
                     <li><a href="#">Gerenciar Clientes</a></li>
                 </ul>
                 <li>
+                    <a href="#">
+                        <span class="moldure">
+                            <i class="far fa-handshake"></i>
+                        </span>
+                        Alugar
+                    </a>
+                </li>
+                <li>
                     <a href="@Url.Action("Index", "Settings", null)">
                         <span class="moldure">
                             <i class="far fa-sun"></i>
@@ -85,9 +94,9 @@
         </div>
     </aside>
     @RenderBody()
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/simplebar/simplebar.js"></script>
     <script src="~/js/script.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
-﻿
+﻿@*@model AccountExpress.Models.ViewModels.VehicleViewModel;*@
+
 @{
     ViewData["Title"] = "Veículos | ";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,10 +23,11 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="vehicle-brand">Marca</label>
+                                        @*<select id="vehicle-brand" class="form-control" name="vehicle-brand" asp-for="Brand" asp-items="Model.ListBrands"></select>*@
                                         <select id="vehicle-brand" class="form-control" name="vehicle-brand">
-                                            <option>Wolkswagen</option>
-                                            <option>Chevrolet</option>
-                                            <option>Fiat</option>
+                                            <option>wolkswagen</option>
+                                            <option>chevrolet</option>
+                                            <option>fiat</option>
                                         </select>
                                         <small class="form-text text-muted">Selecione a marca do veículo</small>
                                     </div>

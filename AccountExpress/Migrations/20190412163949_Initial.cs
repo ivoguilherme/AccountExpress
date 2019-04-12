@@ -56,17 +56,17 @@ namespace AccountExpress.Migrations
                     Name = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     DateOfBirth = table.Column<DateTime>(nullable: false),
-                    CPF = table.Column<int>(nullable: false),
+                    CPF = table.Column<string>(nullable: true),
                     RG = table.Column<string>(nullable: true),
                     CNH = table.Column<string>(nullable: true),
-                    Phone = table.Column<int>(nullable: false),
+                    Phone = table.Column<string>(nullable: true),
                     Adress = table.Column<string>(nullable: true),
-                    AdressNumber = table.Column<int>(nullable: false),
+                    AdressNumber = table.Column<string>(nullable: true),
                     Complement = table.Column<string>(nullable: true),
                     District = table.Column<string>(nullable: true),
                     City = table.Column<string>(nullable: true),
-                    States = table.Column<string>(nullable: true),
-                    CEP = table.Column<int>(nullable: false)
+                    State = table.Column<string>(nullable: true),
+                    CEP = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

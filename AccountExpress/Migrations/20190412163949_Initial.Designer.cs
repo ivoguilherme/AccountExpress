@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccountExpress.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190331231128_Initial")]
+    [Migration("20190412163949_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
+                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("AccountExpress.Models.Customers", b =>
@@ -26,13 +26,13 @@ namespace AccountExpress.Migrations
 
                     b.Property<string>("Adress");
 
-                    b.Property<int>("AdressNumber");
+                    b.Property<string>("AdressNumber");
 
-                    b.Property<int>("CEP");
+                    b.Property<string>("CEP");
 
                     b.Property<string>("CNH");
 
-                    b.Property<int>("CPF");
+                    b.Property<string>("CPF");
 
                     b.Property<string>("City");
 
@@ -46,11 +46,11 @@ namespace AccountExpress.Migrations
 
                     b.Property<string>("Name");
 
-                    b.Property<int>("Phone");
+                    b.Property<string>("Phone");
 
                     b.Property<string>("RG");
 
-                    b.Property<string>("States");
+                    b.Property<string>("State");
 
                     b.HasKey("Id");
 

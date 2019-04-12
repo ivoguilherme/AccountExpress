@@ -1,33 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using AccountExpress.Models.Enums;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using AccountExpress.Data;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using AccountExpress.Data;
 using AccountExpress.Models;
 
 namespace AccountExpress.Controllers
 {
-    public class VehiclesController : Controller
+    public class VCrudController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public VehiclesController(ApplicationDbContext context)
+        public VCrudController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public IActionResult VehicleRegistration()
-        {
-            return View();
-        }
+        // GET: VCrud
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.Vehicles.ToListAsync());
+        //}
 
-        public IActionResult VehicleManager()
-        {
-            return View();
-        }
-
+        // GET: Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,17 +44,17 @@ namespace AccountExpress.Controllers
         }
 
         // GET: Create
-        //public IActionResult VehicleRegistration()
-        //{
-        //    return View();
-        //}
+        public IActionResult VehicleRegistration()
+        {
+            return View();
+        }
 
         // POST: VCrud/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> VehicleRegistration([Bind("Id,Brands,Chassis,Model,Type,Doors,Color,Fuel,Exchange,Steering,Manufacturing,Mileage,Observations,Plate")] Vehicle vehicle)
+        public async Task<IActionResult> VehicleRegistration([Bind("Id,Brands,Model,Type,Doors,Color,Fuel,Exchange,Steering,Manufacturing")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {

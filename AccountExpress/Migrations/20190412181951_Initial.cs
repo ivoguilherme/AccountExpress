@@ -74,6 +74,31 @@ namespace AccountExpress.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Vehicles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Brands = table.Column<int>(nullable: false),
+                    Model = table.Column<string>(nullable: true),
+                    Type = table.Column<string>(nullable: true),
+                    Doors = table.Column<string>(nullable: true),
+                    Color = table.Column<string>(nullable: true),
+                    Fuel = table.Column<string>(nullable: true),
+                    Exchange = table.Column<string>(nullable: true),
+                    Steering = table.Column<string>(nullable: true),
+                    Manufacturing = table.Column<string>(nullable: true),
+                    Mileage = table.Column<string>(nullable: true),
+                    Plate = table.Column<string>(nullable: true),
+                    Chassis = table.Column<string>(nullable: true),
+                    Observations = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Vehicles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -236,6 +261,9 @@ namespace AccountExpress.Migrations
 
             migrationBuilder.DropTable(
                 name: "Customers");
+
+            migrationBuilder.DropTable(
+                name: "Vehicles");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

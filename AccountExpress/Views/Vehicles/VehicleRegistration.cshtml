@@ -1,4 +1,4 @@
-﻿@*@model AccountExpress.Models.ViewModels.VehicleViewModel;*@
+﻿@model AccountExpress.Models.Vehicle;
 
 @{
     ViewData["Title"] = "Veículos | ";
@@ -11,7 +11,7 @@
             <h4>Cadastrar Veículo</h4>
         </div>
 
-        <form method="POST">
+        <form  asp-action="VehicleRegistration">
             <div class="row">
                 <div class="col-md-12">
                     <div class="box">
@@ -22,9 +22,8 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="vehicle-brand">Marca</label>
-                                        @*<select id="vehicle-brand" class="form-control" name="vehicle-brand" asp-for="Brand" asp-items="Model.ListBrands"></select>*@
-                                        <select id="vehicle-brand" class="form-control" name="vehicle-brand">
+                                        <label for="Brands">Marca</label>
+                                        <select id="Brands" class="form-control" name="Brands">
                                             <option>wolkswagen</option>
                                             <option>chevrolet</option>
                                             <option>fiat</option>
@@ -34,15 +33,15 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="vehicle-model">Modelo</label>
-                                        <input type="text" class="form-control" id="vehicle-model" name="vehicle-model">
+                                        <label for="Model">Modelo</label>
+                                        <input type="text" class="form-control" id="Model" name="Model">
                                         <small class="form-text text-muted">Imforme o modelo do veículo</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="vehicle-type">Tipo</label>
-                                        <select id="vehicle-type" class="form-control" name="vehicle-type">
+                                        <label for="Type">Tipo</label>
+                                        <select id="Type" class="form-control" name="Type">
                                             <option>Passeio</option>
                                             <option>Esportivo</option>
                                             <option>Luxo</option>
@@ -54,8 +53,8 @@
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="vehicle-doors">Portas</label>
-                                        <select id="vehicle-doors" class="form-control" name="vehicle-doors">
+                                        <label for="Doors">Portas</label>
+                                        <select id="Doors" class="form-control" name="Doors">
                                             <option>2</option>
                                             <option>3</option>
                                             <option>4</option>
@@ -65,8 +64,8 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="vehicle-color">Cor</label>
-                                        <select id="vehicle-color" class="form-control" name="vehicle-color">
+                                        <label for="Color">Cor</label>
+                                        <select id="Color" class="form-control" name="Color">
                                             <option>Branco</option>
                                             <option>Preto</option>
                                             <option>Prata</option>
@@ -81,8 +80,8 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="vehicle-fuel">Combustível</label>
-                                        <select id="vehicle-fuel" class="form-control" name="vehicle-fuel">
+                                        <label for="Fuel">Combustível</label>
+                                        <select id="Fuel" class="form-control" name="Fuel">
                                             <option>Gasolina</option>
                                             <option>Álcool</option>
                                             <option>Flex</option>
@@ -92,8 +91,8 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="vehicle-gearbox">Câmbio</label>
-                                        <select id="vehicle-gearbox" class="form-control" name="vehicle-gearbox">
+                                        <label for="Exchange">Câmbio</label>
+                                        <select id="Exchange" class="form-control" name="Exchange">
                                             <option>Automático</option>
                                             <option>Manual</option>
                                         </select>
@@ -102,8 +101,8 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="vehicle-steering">Direção</label>
-                                        <select id="vehicle-steering" class="form-control" name="vehicle-steering">
+                                        <label for="Steering">Direção</label>
+                                        <select id="Steering" class="form-control" name="Steering">
                                             <option>Hidráulica</option>
                                             <option>Elétrica</option>
                                         </select>
@@ -112,8 +111,8 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="vehicle-manufacturing">Fabricação</label>
-                                        <select id="vehicle-manufacturing" class="form-control" name="vehicle-manufacturing">
+                                        <label for="Manufacturing">Fabricação</label>
+                                        <select id="Manufacturing" class="form-control" name="Manufacturing">
                                             <option>2015</option>
                                             <option>2016</option>
                                             <option>2017</option>
@@ -135,22 +134,22 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="vehicle-mileage">Quilometragem</label>
-                                        <input type="text" class="form-control" id="vehicle-mileage" name="vehicle-mileage">
+                                        <label for="Mileage">Quilometragem</label>
+                                        <input type="text" class="form-control" id="Mileage" name="Mileage">
                                         <small class="form-text text-muted">Imforme o tipo de combustível</small>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="vehicle-plate">Placa</label>
-                                        <input type="text" class="form-control" id="vehicle-plate" name="vehicle-plate">
+                                        <label for="Plate">Placa</label>
+                                        <input type="text" class="form-control" id="Plate" name="Plate">
                                         <small class="form-text text-muted">Imforme a Placa</small>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="vehicle-chassis">Chassi</label>
-                                        <input type="text" class="form-control" id="vehicle-chassis" name="vehicle-chassis">
+                                        <label for="Chassis">Chassi</label>
+                                        <input type="text" class="form-control" id="Chassis" name="Chassis">
                                         <small class="form-text text-muted">Imforme o número do Chassi do veículo</small>
                                     </div>
                                 </div>
@@ -159,8 +158,8 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="vehicle-observations">Observações</label>
-                                        <textarea class="form-control" id="vehicle-observations" name="vehicle-observations"></textarea>
+                                        <label for="Observations">Observações</label>
+                                        <textarea class="form-control" id="Observations" name="Observations"></textarea>
                                         <small class="form-text text-muted">Informe aqui observações relevantes sobre o veículo, como por exemplo: Trava Elétrica, Alarme, Som, etc.</small>
                                     </div>
                                 </div>
@@ -169,60 +168,9 @@
                     </div>
 
                     <div class="box-btn">
-                        <button type="submit" class="btn btn-success">Cadastrar Informações</button>
+                        <button type="submit" value="VehicleRegistration" class="btn btn-success">Cadastrar Informações</button>
                     </div>
                 </div>
-
-
-
-                @*
-                    <div class="col-md-6">
-                        <div class="box">
-                            <div class="title-box">
-                                <span>Novas informações de acesso</span>
-                            </div>
-                            <div class="content-box">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="email-perfil-fb">E-mail</label>
-                                        <input type="email" class="form-control" id="email-perfil-fb" name="email-perfil-fb">
-                                        <small class="form-text text-muted">Imforme o novo e-mail</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="senha-perfil-fb">Senha</label>
-                                        <input type="password" class="form-control" id="senha-perfil-fb" name="senha-perfil-fb">
-                                        <small class="form-text text-muted">Imforme a nova senha</small>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="box">
-                            <div class="title-box">
-                                <span>Antigas informações de acesso</span>
-                            </div>
-                            <div class="content-box">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="email-perfil-fb">E-mail</label>
-                                        <input type="email" class="form-control" id="email-perfil-fb" name="email-perfil-fb">
-                                        <small class="form-text text-muted">Imforme o antigo e-mail</small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="senha-perfil-fb">Senha</label>
-                                        <input type="password" class="form-control" id="senha-perfil-fb" name="senha-perfil-fb">
-                                        <small class="form-text text-muted">Imforme a antiga senha</small>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-
-                    </div>
-
-                *@
             </div>
         </form>
     </div>

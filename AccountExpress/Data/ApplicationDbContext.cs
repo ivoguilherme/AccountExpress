@@ -12,5 +12,6 @@ namespace AccountExpress.Data
         }
 
         public DbSet<Customers> Customers { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
     }
 }

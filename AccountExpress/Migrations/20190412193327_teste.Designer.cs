@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccountExpress.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190412163949_Initial")]
-    partial class Initial
+    [Migration("20190412193327_teste")]
+    partial class teste
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,6 +55,42 @@ namespace AccountExpress.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("AccountExpress.Models.Vehicle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Brands");
+
+                    b.Property<string>("Chassis");
+
+                    b.Property<string>("Color");
+
+                    b.Property<string>("Doors");
+
+                    b.Property<string>("Exchange");
+
+                    b.Property<string>("Fuel");
+
+                    b.Property<string>("Manufacturing");
+
+                    b.Property<string>("Mileage");
+
+                    b.Property<string>("Model");
+
+                    b.Property<string>("Observations");
+
+                    b.Property<string>("Plate");
+
+                    b.Property<string>("Steering");
+
+                    b.Property<string>("Type");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Vehicles");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

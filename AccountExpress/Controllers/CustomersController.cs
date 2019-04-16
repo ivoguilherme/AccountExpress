@@ -36,10 +36,16 @@ namespace AccountExpress.Controllers
             return View(customers);
         }
 
-        // GET: Create
+        // GET: CustomerRegistration Create
         public IActionResult CustomerRegistration()
         {
             return View();
+        }
+
+        //GET CustomerManager Index
+        public async Task<IActionResult> CustomerManager()
+        {
+            return View(await _context.Customers.ToListAsync());
         }
 
         // POST: Create

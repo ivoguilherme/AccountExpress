@@ -1,0 +1,136 @@
+﻿@model IEnumerable<AccountExpress.Models.Customers>
+
+@{
+    ViewData["Title"] = "Gerenciar Clientes | ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div data-simplebar class="wrapper">
+    <div class="container-fluid">
+        <div class="title-wrapper">
+            <h4>Cadastrar Cliente</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="box">
+                    <div class="title-box">
+                        <span>Informações Pessoais</span>
+                    </div>
+                    <div class="content-box">
+
+
+                        <table id="dtBasicExample" class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Name)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Email)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DateOfBirth)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CPF)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.RG)
+                                    </th>
+                                    @*<th>
+                                        @Html.DisplayNameFor(model => model.CNH)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Phone)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Adress)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.AdressNumber)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Complement)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.District)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.City)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.State)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CEP)
+                                    </th>*@
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DateOfBirth)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CPF)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.RG)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CNH)
+                                        </td>
+                                        @*<td>
+                                            @Html.DisplayFor(modelItem => item.Phone)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Adress)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.AdressNumber)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Complement)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.District)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.City)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.State)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CEP)
+                                        </td>*@
+                                        <td>
+                                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

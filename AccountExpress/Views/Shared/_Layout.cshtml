@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="~/css/simplebar.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/main.css">
-    <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">
     <title>@ViewData["Title"]AccountExpress</title>
 </head>
 <body>
@@ -67,7 +69,7 @@
                 </li>
                 <ul class="sub-menu collapse" id="users-nav">
                     <li><a href="@Url.Action("CustomerRegistration", "Customers", null)">Cadastrar Clientes</a></li>
-                    <li><a href="#">Gerenciar Clientes</a></li>
+                    <li><a href="@Url.Action("CustomerManager", "Customers", null)">Gerenciar Clientes</a></li>
                 </ul>
                 <li>
                     <a href="#">
@@ -93,9 +95,14 @@
             </div>
         </div>
     </aside>
+
     @RenderBody()
-    <script src="~/lib/jquery/jquery.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/js/mdb.min.js"></script>
     <script src="~/lib/simplebar/simplebar.js"></script>
     <script src="~/js/script.js"></script>
 </body>

@@ -19,7 +19,16 @@
                             <span>Informações Básicas</span>
                         </div>*@
                     <div class="title-wrapper">
-                        <h4>Consultar Clientes</h4>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4>Administrar Clientes</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="box-btn">
+                                    <a asp-action="Create" class="btn btn-success"><i class="fas fa-user-plus"></i> Novo Cliente</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="content-box">
 
@@ -38,14 +47,16 @@
                                     @*<th>
                                             @Html.DisplayNameFor(model => model.DateOfBirth)
                                         </th>
+                                        *@
                                         <th>
                                             @Html.DisplayNameFor(model => model.CPF)
                                         </th>
-                                        <th>
+                                        @*<th>
                                             @Html.DisplayNameFor(model => model.RG)
                                         </th>*@
                                     <th>
-                                        @Html.DisplayNameFor(model => model.CNH)
+                                        @*@Html.DisplayNameFor(model => model.CNH)*@
+                                        CNH
                                     </th>
                                     <th>
                                         @*@Html.DisplayNameFor(model => model.Phone)*@
@@ -89,11 +100,11 @@
                                         </td>
                                         @*<td>
                                                 @Html.DisplayFor(modelItem => item.DateOfBirth)
-                                            </td>
+                                            </td>*@
                                             <td>
                                                 @Html.DisplayFor(modelItem => item.CPF)
                                             </td>
-                                            <td>
+                                           @* <td>
                                                 @Html.DisplayFor(modelItem => item.RG)
                                             </td>*@
                                         <td>
@@ -103,12 +114,7 @@
                                             @Html.DisplayFor(modelItem => item.Phone)
                                         </td>
                                         @*<td>
-                                                 @Html.DisplayFor(modelItem => item.Adress),
-                                                 @Html.DisplayFor(modelItem => item.AdressNumber),
-                                                 @Html.DisplayFor(modelItem => item.Complement),
-                                                 @Html.DisplayFor(modelItem => item.District),
-                                                 @Html.DisplayFor(modelItem => item.City),
-                                                 @Html.DisplayFor(modelItem => item.State)
+                                                 @Html.DisplayFor(modelItem => item.Adress)
                                              </td>
                                             <td>
                                                  @Html.DisplayFor(modelItem => item.AdressNumber)
@@ -129,9 +135,9 @@
                                                  @Html.DisplayFor(modelItem => item.CEP)
                                              </td>*@
                                         <td>
-                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-info"><i class="fas fa-pen"></i></a>
-                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark"><i class="fas fa-info-circle"></i></a>
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fas fa-info"></i></a>
                                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-user-times"></i></a>
+
                                         </td>
                                     </tr>
                                 }

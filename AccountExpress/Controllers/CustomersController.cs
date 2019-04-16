@@ -37,13 +37,13 @@ namespace AccountExpress.Controllers
         }
 
         // GET: CustomerRegistration Create
-        public IActionResult CustomerRegistration()
+        public IActionResult Create()
         {
             return View();
         }
 
         //GET CustomerManager Index
-        public async Task<IActionResult> CustomerManager()
+        public async Task<IActionResult> Index()
         {
             return View(await _context.Customers.ToListAsync());
         }
@@ -53,13 +53,13 @@ namespace AccountExpress.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CustomerRegistration([Bind("Id,Name,Email,DateOfBirth,CPF,RG,CNH,Phone,Adress,AdressNumber,Complement,District,City,State,CEP")] Customers customers)
+        public async Task<IActionResult> Create([Bind("Id,Name,Email,DateOfBirth,CPF,RG,CNH,Phone,Adress,AdressNumber,Complement,District,City,State,CEP")] Customers customers)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(customers);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(CustomerRegistration));
+                return RedirectToAction(nameof(Index));
             }
             return View(customers);
         }
@@ -112,7 +112,7 @@ namespace AccountExpress.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(CustomerRegistration));
+                return RedirectToAction(nameof(Index));
             }
             return View(customers);
         }
@@ -143,7 +143,7 @@ namespace AccountExpress.Controllers
             var customers = await _context.Customers.FindAsync(id);
             _context.Customers.Remove(customers);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(CustomerRegistration));
+            return RedirectToAction(nameof(Index));
         }
 
         private bool CustomersExists(int id)

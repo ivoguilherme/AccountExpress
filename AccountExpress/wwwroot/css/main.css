@@ -38,6 +38,10 @@ label {
     margin-bottom: 25px;
 }
 
+.fas {
+    min-width: 18px;
+}
+
 nav {
     background-color: #545454;
     border-bottom: 3px solid #18af8f;
@@ -337,7 +341,7 @@ aside {
     }
 
     .btn {
-        padding: 10px !important;
+        padding: 8px !important;
     }
 
 .btn.default-btn {
@@ -377,7 +381,7 @@ aside {
     }
 
 .tb-customers th:nth-child(1) {
-    width: 30%;
+    width: 25%;
 }
 
 .tb-customers th:nth-child(2) {
@@ -385,15 +389,19 @@ aside {
 }
 
 .tb-customers th:nth-child(3) {
-    width: 15%;
+    width: 12.5%;
 }
 
 .tb-customers th:nth-child(4) {
-    width: 15%;
+    width: 12.5%;
 }
 
 .tb-customers th:nth-child(5) {
     width: 15%;
+}
+
+.tb-customers th:nth-child(6) {
+    width: 10%;
 }
 
 

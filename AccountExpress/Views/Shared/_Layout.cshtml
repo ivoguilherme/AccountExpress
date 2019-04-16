@@ -1,11 +1,9 @@
 ﻿<!doctype html>
 <html lang="pt-br">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="~/css/simplebar.css">
@@ -51,16 +49,15 @@
                 </ul>
 
                 <li data-toggle="collapse" data-target="#users-nav" class="collapsed active">
-                    <a href="#">
+                    <a href="@Url.Action("Index", "Customers", null)">
                         <span class="moldure"><i class="far fa-user"></i></span>
-                        <span class="icon"><i class="fas fa-angle-left"></i></span>
                         Clientes
                     </a>
                 </li>
-                <ul class="sub-menu collapse" id="users-nav">
-                    <li><a href="@Url.Action("CustomerRegistration", "Customers", null)">Cadastrar Clientes</a></li>
-                    <li><a href="@Url.Action("CustomerManager", "Customers", null)">Gerenciar Clientes</a></li>
-                </ul>
+                @*<ul class="sub-menu collapse" id="users-nav">
+                    <li><a href="@Url.Action("Registration", "Customers", null)">Cadastrar Clientes</a></li>
+                    <li><a href="@Url.Action("Manager", "Customers", null)">Gerenciar Clientes</a></li>
+                </ul>*@
                 <li>
                     <a href="#">
                         <span class="moldure">

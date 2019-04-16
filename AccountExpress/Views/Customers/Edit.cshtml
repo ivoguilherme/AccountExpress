@@ -1,105 +1,162 @@
 ﻿@model AccountExpress.Models.Customers
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
-
-<h4>Customers</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div data-simplebar class="wrapper">
+    <div class="container-fluid">
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateOfBirth" class="control-label"></label>
-                <input asp-for="DateOfBirth" class="form-control" />
-                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CPF" class="control-label"></label>
-                <input asp-for="CPF" class="form-control" />
-                <span asp-validation-for="CPF" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RG" class="control-label"></label>
-                <input asp-for="RG" class="form-control" />
-                <span asp-validation-for="RG" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CNH" class="control-label"></label>
-                <input asp-for="CNH" class="form-control" />
-                <span asp-validation-for="CNH" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Adress" class="control-label"></label>
-                <input asp-for="Adress" class="form-control" />
-                <span asp-validation-for="Adress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AdressNumber" class="control-label"></label>
-                <input asp-for="AdressNumber" class="form-control" />
-                <span asp-validation-for="AdressNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Complement" class="control-label"></label>
-                <input asp-for="Complement" class="form-control" />
-                <span asp-validation-for="Complement" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="District" class="control-label"></label>
-                <input asp-for="District" class="form-control" />
-                <span asp-validation-for="District" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="State" class="control-label"></label>
-                <input asp-for="State" class="form-control" />
-                <span asp-validation-for="State" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CEP" class="control-label"></label>
-                <input asp-for="CEP" class="form-control" />
-                <span asp-validation-for="CEP" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <div class="title-wrapper">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Editar Cliente</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-box">
+                            <div class="row">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="Id" />
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="Name">Nome</label>
+                                        <input asp-for="Name" class="form-control" />
+                                        <small class="form-text text-muted">Imforme o nome do cliente</small>
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="Name">E-mail</label>
+                                        <input asp-for="Email" class="form-control" />
+                                        <small class="form-text text-muted">Imforme endereço de e-mail</small>
+                                        <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="Name">Data de Nascimento</label>
+                                        <input asp-for="DateOfBirth" class="form-control" />
+                                        <small class="form-text text-muted">Imforme a data de nascimento</small>
+                                        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="CPF">CPF</label>
+                                        <input asp-for="CPF" class="form-control" />
+                                        <small class="form-text text-muted">Imforme o número de CPF</small>
+                                        <span asp-validation-for="CPF" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="CPF">RG</label>
+                                        <input asp-for="RG" class="form-control" />
+                                        <small class="form-text text-muted">Imforme o número de RG</small>
+                                        <span asp-validation-for="RG" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="CPF">CNH</label>
+                                        <input asp-for="CNH" class="form-control" />
+                                        <small class="form-text text-muted">Imforme o número da CNH</small>
+                                        <span asp-validation-for="CNH" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="CPF">Celular</label>
+                                        <input asp-for="Phone" class="form-control" />
+                                        <small class="form-text text-muted">Imforme o número de Celular</small>
+                                        <span asp-validation-for="Phone" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="CPF">Endereço</label>
+                                        <input asp-for="Adress" class="form-control" />
+                                        <small class="form-text text-muted">Imforme o endereço</small>
+                                        <span asp-validation-for="Adress" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label for="CPF">Número</label>
+                                        <input asp-for="AdressNumber" class="form-control" />
+                                        <small class="form-text text-muted">Imforme o número</small>
+                                        <span asp-validation-for="AdressNumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="CPF">Complemento</label>
+                                        <input asp-for="Complement" class="form-control" />
+                                        <small class="form-text text-muted">Imforme um complemento</small>
+                                        <span asp-validation-for="Complement" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="CPF">Bairro</label>
+                                        <input asp-for="District" class="form-control" />
+                                        <small class="form-text text-muted">Imforme o bairro</small>
+                                        <span asp-validation-for="District" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="CPF">Cidade</label>
+                                        <input asp-for="City" class="form-control" />
+                                        <small class="form-text text-muted">Imforme a cidade</small>
+                                        <span asp-validation-for="City" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="CPF">Estado</label>
+                                        <input asp-for="State" class="form-control" />
+                                        <small class="form-text text-muted">Selecione o estado</small>
+                                        <span asp-validation-for="State" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label for="CPF">CEP</label>
+                                        <input asp-for="CEP" class="form-control" />
+                                        <small class="form-text text-muted">Imforme o CEP</small>
+                                        <span asp-validation-for="CEP" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="box-btn">
+                                        <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-dark">Voltar</a>
+                                        <input type="submit" value="Atualizar" class="btn btn-success" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-</body>
-</html>

@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="~/css/simplebar.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/css/mdb.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/main.css">
     <title>@ViewData["Title"]AccountExpress</title>
 </head>
@@ -39,14 +37,6 @@
                         Visão Geral
                     </a>
                 </li>
-                @* <li>
-                        <a href="@Url.Action("VehicleRegistration", "Vehicles", null)">
-                            <span class="moldure">
-                                <i class="far fa-id-card"></i>
-                            </span>
-                            Veículos
-                        </a>
-                    </li>*@
 
                 <li data-toggle="collapse" data-target="#facebook-nav" class="collapsed active">
                     <a href="#">
@@ -98,11 +88,8 @@
 
     @RenderBody()
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.6/js/mdb.min.js"></script>
     <script src="~/lib/simplebar/simplebar.js"></script>
     <script src="~/js/script.js"></script>
 </body>
@@ -117,7 +104,6 @@
 
 
 @*
-    <!DOCTYPE html>
     <html>
     <head>
         <meta charset="utf-8" />

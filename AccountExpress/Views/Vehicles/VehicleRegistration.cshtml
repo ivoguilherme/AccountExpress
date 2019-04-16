@@ -7,16 +7,20 @@
 
 <div data-simplebar class="wrapper">
     <div class="container-fluid">
-        <div class="title-wrapper">
-            <h4>Cadastrar Veículo</h4>
-        </div>
 
-        <form  asp-action="VehicleRegistration">
+        <form asp-action="VehicleRegistration">
             <div class="row">
                 <div class="col-md-12">
                     <div class="box">
-                        <div class="title-box">
+                        @*<div class="title-box">
                             <span>Características do Veículo</span>
+                        </div>*@
+                        <div class="title-wrapper">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Cadastrar Veículo</h4>
+                                </div>
+                            </div>
                         </div>
                         <div class="content-box">
                             <div class="row">
@@ -49,8 +53,6 @@
                                         <small class="form-text text-muted">Selecione o tipo de veículo</small>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label for="Doors">Portas</label>
@@ -122,16 +124,6 @@
                                         <small class="form-text text-muted">Ano de Fabricação</small>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="title-box">
-                            <span>Informações Adicionais Sobre o Veículo</span>
-                        </div>
-                        <div class="content-box">
-                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="Mileage">Quilometragem</label>
@@ -153,9 +145,6 @@
                                         <small class="form-text text-muted">Imforme o número do Chassi do veículo</small>
                                     </div>
                                 </div>
-
-                            </div>
-                            <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="Observations">Observações</label>
@@ -163,13 +152,16 @@
                                         <small class="form-text text-muted">Informe aqui observações relevantes sobre o veículo, como por exemplo: Trava Elétrica, Alarme, Som, etc.</small>
                                     </div>
                                 </div>
+                                <div class="col-md-12">
+                                    <div class="box-btn">
+                                        <button type="submit" value="VehicleRegistration" class="btn btn-success">Cadastrar Informações</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="box-btn">
-                        <button type="submit" value="VehicleRegistration" class="btn btn-success">Cadastrar Informações</button>
-                    </div>
+
                 </div>
             </div>
         </form>

@@ -7,125 +7,112 @@
 
 <div data-simplebar class="wrapper">
     <div class="container-fluid">
-        <div class="title-wrapper">
-            <h4>Cadastrar Cliente</h4>
-        </div>
 
         <form asp-action="CustomerRegistration">
             <div class="row">
                 <div class="col-md-12">
 
                     <div class="box">
-                        <div class="title-box">
+                        @*<div class="title-box">
                             <span>Informações Pessoais</span>
+                        </div>*@
+
+                        <div class="title-wrapper">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Cadastrar Cliente</h4>
+                                </div>
+                            </div>
                         </div>
                         <div class="content-box">
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <label for="Name">Nome</label>
+                                        <label for="Brands">Nome</label>
                                         <input type="text" class="form-control" id="Name" name="Name">
                                         <small class="form-text text-muted">Imforme o nome do cliente</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="Email">E-mail</label>
+                                        <label for="Brands">E-mail</label>
                                         <input type="email" class="form-control" id="Email" name="Email">
                                         <small class="form-text text-muted">Imforme endereço de e-mail</small>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="DateOfBirth">Data de Nascimento</label>
+                                        <label for="Brands">Data de Nascimento</label>
                                         <input type="date" class="form-control" id="DateOfBirth" name="DateOfBirth">
                                         <small class="form-text text-muted">Imforme a data de nascimento</small>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="CPF">CPF</label>
+                                        <label for="Brands">CPF</label>
                                         <input type="number" class="form-control" id="CPF" name="CPF">
                                         <small class="form-text text-muted">Imforme o número de CPF</small>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="RG">RG</label>
+                                        <label for="Brands">RG</label>
                                         <input type="text" class="form-control" id="RG" name="RG">
                                         <small class="form-text text-muted">Imforme o número do RG</small>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="CNH">CNH</label>
+                                        <label for="Brands">CNH</label>
                                         <input type="text" class="form-control" id="CNH" name="CNH">
                                         <small class="form-text text-muted">Imforme o número da CNH</small>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="Phone">Celular</label>
+                                        <label for="Brands">Celular</label>
                                         <input type="number" class="form-control" id="Phone" name="Phone">
                                         <small class="form-text text-muted">Imforme o número de celular</small>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="box">
-                        <div class="title-box">
-                            <span>Informações de Endereço</span>
-                        </div>
-                        <div class="content-box">
-                            <div class="row">
-                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="Adress">Endereço</label>
+                                        <label for="Brands">Endereço</label>
                                         <input type="text" class="form-control" id="Adress" name="Adress">
                                         <small class="form-text text-muted">Imforme o endereço</small>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="AdressNumber">Número</label>
+                                        <label for="Brands">Número</label>
                                         <input type="number" class="form-control" id="AdressNumber" name="AdressNumber">
                                         <small class="form-text text-muted">Imforme o número</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="Complement">Complemento</label>
+                                        <label for="Brands">Complemento</label>
                                         <input type="text" class="form-control" id="Complement" name="Complement">
                                         <small class="form-text text-muted">Imforme um complemento</small>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="District">Bairro</label>
+                                        <label for="Brands">Bairro</label>
                                         <input type="text" class="form-control" id="District" name="District">
                                         <small class="form-text text-muted">Imforme o endereço</small>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="City">Cidade</label>
+                                        <label for="Brands">Cidade</label>
                                         <input type="text" class="form-control" id="City" name="City">
                                         <small class="form-text text-muted">Imforme a cidade</small>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="State">Estado</label>
+                                        <label for="Brands">Estado</label>
                                         <select id="State" class="form-control" name="State">
                                             <option>Minas Gerais</option>
                                             <option>São Paulo</option>
@@ -136,19 +123,19 @@
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
-                                        <label for="CEP">CEP</label>
+                                        <label for="Brands">CEP</label>
                                         <input type="number" class="form-control" id="CEP" name="CEP">
                                         <small class="form-text text-muted">Imforme o CEP</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="box-btn">
+                                        <button type="submit" value="CustomerRegistration" class="btn btn-success">Cadastrar Informações</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="box-btn">
-                        <button type="submit" value="CustomerRegistration" class="btn btn-success">Cadastrar Informações</button>
-                    </div>
-
                 </div>
             </div>
         </form>

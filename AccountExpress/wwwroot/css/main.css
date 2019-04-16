@@ -17,6 +17,7 @@ select {
         box-shadow: 0 0 0 0.2rem rgba(28, 201, 165, .25) !important;
     }
 
+
 option {
 }
 
@@ -26,6 +27,15 @@ option {
 
 textarea {
     min-height: 80px !important;
+}
+
+label {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
 }
 
 nav {
@@ -241,6 +251,7 @@ aside {
         }
 
         .wrapper .container-fluid .box {
+            padding: 15px;
             border-bottom-left-radius: 3px;
             border-bottom-right-radius: 3px;
             background-color: #fff;
@@ -257,7 +268,7 @@ aside {
         }
 
     .wrapper .title-wrapper {
-        padding-bottom: 30px;
+        padding: 15px;
     }
 
         .wrapper .title-wrapper h4 {
@@ -325,6 +336,10 @@ aside {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ececec", endColorstr="#c2c2c2", GradientType=1);
     }
 
+    .btn {
+        padding: 10px !important;
+    }
+
 .btn.default-btn {
     color: #fff;
     opacity: 0.9;
@@ -342,17 +357,43 @@ aside {
         opacity: 1;
     }
 
-    .box-btn {
-        text-align: right;
-    }
+.box-btn {
+    text-align: right;
+}
+
 .btn.btn-success {
     background-color: #18af8f;
     border-color: #18af8f;
-    padding: 10px 15px;
-    font-weight: bold;
-    transition: transform 0.2s;
 }
 
-    .btn.btn-success:hover {
-        transform: scale(1.05);
+    .btn.btn-success:hover,
+    .btn.btn-success:active {
+        background-color: #149479 !important;
     }
+
+
+    .btn.btn-success:active {
+        border-color: #0d7761 !important;
+    }
+
+.tb-customers th:nth-child(1) {
+    width: 30%;
+}
+
+.tb-customers th:nth-child(2) {
+    width: 25%;
+}
+
+.tb-customers th:nth-child(3) {
+    width: 15%;
+}
+
+.tb-customers th:nth-child(4) {
+    width: 15%;
+}
+
+.tb-customers th:nth-child(5) {
+    width: 15%;
+}
+
+

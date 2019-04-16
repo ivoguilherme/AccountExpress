@@ -73,10 +73,12 @@ namespace AccountExpress.Controllers
             }
 
             var customers = await _context.Customers.FindAsync(id);
+
             if (customers == null)
             {
                 return NotFound();
             }
+
             return View(customers);
         }
 

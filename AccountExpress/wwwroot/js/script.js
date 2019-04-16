@@ -3,7 +3,9 @@ $nav.click(function () {
     $(this).toggleClass("nav-active");
 });
 
-$(document).ready(function () {
-    $('#dtBasicExample').DataTable();
-    $('.dataTables_length').addClass('bs-select');
-});
+function OpenModalEditCustomer(id) {
+    $("#editCustomerManager").load("Customers/Edit?id=" + id, function () {
+        $("#editCustomerManager").modal();
+    });
+}
+

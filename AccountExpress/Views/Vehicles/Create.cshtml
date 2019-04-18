@@ -8,13 +8,10 @@
 <div data-simplebar class="wrapper">
     <div class="container-fluid">
 
-        <form asp-action="VehicleRegistration">
+        <form asp-action="Create">
             <div class="row">
                 <div class="col-md-12">
                     <div class="box">
-                        @*<div class="title-box">
-                            <span>Características do Veículo</span>
-                        </div>*@
                         <div class="title-wrapper">
                             <div class="row">
                                 <div class="col-md-12">
@@ -39,7 +36,7 @@
                                     <div class="form-group">
                                         <label for="Model">Modelo</label>
                                         <input type="text" class="form-control" id="Model" name="Model">
-                                        <small class="form-text text-muted">Imforme o modelo do veículo</small>
+                                        <small class="form-text text-muted">Informe o modelo do veículo</small>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -128,21 +125,21 @@
                                     <div class="form-group">
                                         <label for="Mileage">Quilometragem</label>
                                         <input type="text" class="form-control" id="Mileage" name="Mileage">
-                                        <small class="form-text text-muted">Imforme o tipo de combustível</small>
+                                        <small class="form-text text-muted">Informe o tipo de combustível</small>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="Plate">Placa</label>
                                         <input type="text" class="form-control" id="Plate" name="Plate">
-                                        <small class="form-text text-muted">Imforme a Placa</small>
+                                        <small class="form-text text-muted">Informe a Placa</small>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="Chassis">Chassi</label>
                                         <input type="text" class="form-control" id="Chassis" name="Chassis">
-                                        <small class="form-text text-muted">Imforme o número do Chassi do veículo</small>
+                                        <small class="form-text text-muted">Informe o número do Chassi do veículo</small>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -154,7 +151,8 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="box-btn">
-                                        <button type="submit" value="VehicleRegistration" class="btn btn-success">Cadastrar Informações</button>
+                                        <a asp-action="Index" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
+                                        <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Cadastrar</button>
                                     </div>
                                 </div>
                             </div>

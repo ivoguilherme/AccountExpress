@@ -1,0 +1,76 @@
+﻿@model IEnumerable<AccountExpress.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Gerenciar Veículos | ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div data-simplebar class="wrapper">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="title-wrapper">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h4>Administrar Veículos</h4>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="box-btn">
+                                    <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus"></i> Adicionar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-box">
+
+
+                        <table class="table tb-vehicles">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Marca
+                                    </th>
+                                    <th>
+                                        Modelo
+                                    </th>
+                                    <th>
+                                        Cor
+                                    </th>
+                                    <th>
+                                        Placa
+                                    </th>
+                                    <th>
+                                        Kilometragem
+                                    </th>
+                                    <th>
+                                        Ações
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>@Html.DisplayFor(modelItem => item.Brands)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Model)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Color)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Plate)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Mileage)</td>
+                                    <td>
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fas fa-info"></i> Detalhes</a>
+
+
+                                    </td>
+                                </tr>
+                                }
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,12 +8,12 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="~/css/simplebar.css">
     <link rel="stylesheet" href="~/css/main.css">
-    <title>@ViewData["Title"]AccountExpress</title>
+    <title>@ViewData["Title"]Rental CAR</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg">
         <div id="logo">
-            <a class="navbar-brand" href="@Url.Action("Index", "Overview", null)">AccountExpress</a>
+            <a class="navbar-brand" href="@Url.Action("Index", "Overview", null)">Rental CAR</a>
         </div>
     </nav>
     <aside>
@@ -36,17 +36,15 @@
                     </a>
                 </li>
 
-                <li data-toggle="collapse" data-target="#facebook-nav" class="collapsed active">
-                    <a href="#">
-                        <span class="moldure"><i class="far fa-id-card"></i></span>
-                        <span class="icon"><i class="fas fa-angle-left"></i></span>
+
+                <li>
+                    <a href="@Url.Action("Index", "Vehicles", null)">
+                        <span class="moldure">
+                            <i class="far fa-id-card"></i>
+                        </span>
                         Veículos
                     </a>
                 </li>
-                <ul class="sub-menu collapse" id="facebook-nav">
-                    <li><a href="@Url.Action("VehicleRegistration", "Vehicles", null)">Cadastrar Veículos</a></li>
-                    <li><a href="#">Gerenciar Veículos</a></li>
-                </ul>
 
                 <li data-toggle="collapse" data-target="#users-nav" class="collapsed active">
                     <a href="@Url.Action("Index", "Customers", null)">
@@ -55,25 +53,28 @@
                     </a>
                 </li>
                 @*<ul class="sub-menu collapse" id="users-nav">
-                    <li><a href="@Url.Action("Registration", "Customers", null)">Cadastrar Clientes</a></li>
-                    <li><a href="@Url.Action("Manager", "Customers", null)">Gerenciar Clientes</a></li>
-                </ul>*@
+            <li><a href="@Url.Action("Registration", "Customers", null)">Cadastrar Clientes</a></li>
+            <li><a href="@Url.Action("Manager", "Customers", null)">Gerenciar Clientes</a></li>
+        </ul>*@
                 <li>
                     <a href="#">
                         <span class="moldure">
                             <i class="far fa-handshake"></i>
                         </span>
-                        Alugar
+                        Aluguéis
                     </a>
                 </li>
-                <li>
-                    <a href="@Url.Action("Index", "Settings", null)">
-                        <span class="moldure">
-                            <i class="far fa-sun"></i>
-                        </span>
+                <li data-toggle="collapse" data-target="#config-nav" class="collapsed active">
+                    <a href="#">
+                        <span class="moldure"><i class="far fa-sun"></i></span>
+                        <span class="icon"><i class="fas fa-angle-left"></i></span>
                         Configurações
                     </a>
                 </li>
+                <ul class="sub-menu collapse" id="config-nav">
+                    <li><a href="#">Perfil</a></li>
+                    <li><a href="#">Privacidade</a></li>
+                </ul>
             </ul>
         </div>
         <div class="box-exit">

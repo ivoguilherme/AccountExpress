@@ -18,16 +18,16 @@ namespace AccountExpress.Controllers
             _context = context;
         }
 
-        public IActionResult VehicleRegistration()
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Vehicles.ToListAsync());
+        }
+
+        public IActionResult Create()
         {
             return View();
         }
-
-        public IActionResult VehicleManager()
-        {
-            return View();
-        }
-
+        
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -46,7 +46,7 @@ namespace AccountExpress.Controllers
         }
 
         // GET: Create
-        //public IActionResult VehicleRegistration()
+        //public IActionResult Create()
         //{
         //    return View();
         //}
@@ -56,13 +56,13 @@ namespace AccountExpress.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> VehicleRegistration([Bind("Id,Brands,Chassis,Model,Type,Doors,Color,Fuel,Exchange,Steering,Manufacturing,Mileage,Observations,Plate")] Vehicle vehicle)
+        public async Task<IActionResult> Create([Bind("Id,Brands,Chassis,Model,Type,Doors,Color,Fuel,Exchange,Steering,Manufacturing,Mileage,Observations,Plate")] Vehicle vehicle)
         {
             if (ModelState.IsValid)
             {
                 _context.Add(vehicle);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(VehicleRegistration));
+                return RedirectToAction(nameof(Create));
             }
             return View(vehicle);
         }
@@ -113,7 +113,7 @@ namespace AccountExpress.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(VehicleRegistration));
+                return RedirectToAction(nameof(Create));
             }
             return View(vehicle);
         }
@@ -144,7 +144,7 @@ namespace AccountExpress.Controllers
             var vehicle = await _context.Vehicles.FindAsync(id);
             _context.Vehicles.Remove(vehicle);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(VehicleRegistration));
+            return RedirectToAction(nameof(Create));
         }
 
         private bool VehicleExists(int id)

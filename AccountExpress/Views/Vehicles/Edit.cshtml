@@ -1,80 +1,147 @@
 ﻿@model AccountExpress.Models.Vehicle
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+    <div data-simplebar class="wrapper">
+        <div class="container-fluid">
+            <form asp-action="Edit">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <div class="title-wrapper">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Editar Veículo</h4>
+                                    </div>
+                                </div>
+                            </div>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
+                            <div class="content-box">
+                                <div class="row">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input type="hidden" asp-for="Id" />
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="Brands">Marca</label>
+                                            <input asp-for="Brands" class="form-control" />
+                                            <small class="form-text text-muted">Selecione a marca do veículo</small>
+                                            <span asp-validation-for="Brands" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="Model">Modelo</label>
+                                            <input asp-for="Model" class="form-control" />
+                                            <small class="form-text text-muted">Informe o modelo do veículo</small>
+                                            <span asp-validation-for="Model" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="Type">Tipo</label>
+                                            <input asp-for="Type" class="form-control" />
+                                            <small class="form-text text-muted">Selecione o tipo de veículo</small>
+                                            <span asp-validation-for="Type" class="text-danger"></span>
+                                        </div>
+                                    </div>
 
-<h4>Vehicle</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Brands" class="control-label"></label>
-                <select asp-for="Brands" class="form-control"></select>
-                <span asp-validation-for="Brands" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Model" class="control-label"></label>
-                <input asp-for="Model" class="form-control" />
-                <span asp-validation-for="Model" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Type" class="control-label"></label>
-                <input asp-for="Type" class="form-control" />
-                <span asp-validation-for="Type" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Doors" class="control-label"></label>
-                <input asp-for="Doors" class="form-control" />
-                <span asp-validation-for="Doors" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Color" class="control-label"></label>
-                <input asp-for="Color" class="form-control" />
-                <span asp-validation-for="Color" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Fuel" class="control-label"></label>
-                <input asp-for="Fuel" class="form-control" />
-                <span asp-validation-for="Fuel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Exchange" class="control-label"></label>
-                <input asp-for="Exchange" class="form-control" />
-                <span asp-validation-for="Exchange" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Steering" class="control-label"></label>
-                <input asp-for="Steering" class="form-control" />
-                <span asp-validation-for="Steering" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Manufacturing" class="control-label"></label>
-                <input asp-for="Manufacturing" class="form-control" />
-                <span asp-validation-for="Manufacturing" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="Doors">Portas</label>
+                                            <input asp-for="Doors" class="form-control" />
+                                            <small class="form-text text-muted">Quantidade de Portas</small>
+                                            <span asp-validation-for="Doors" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="Color">Cor</label>
+                                            <input asp-for="Color" class="form-control" />
+                                            <small class="form-text text-muted">Selecione a Cor</small>
+                                            <span asp-validation-for="Color" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="Fuel">Combustível</label>
+                                            <input asp-for="Fuel" class="form-control" />
+                                            <small class="form-text text-muted">Selecione o Combustível</small>
+                                            <span asp-validation-for="Fuel" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="Exchange">Câmbio</label>
+                                            <input asp-for="Exchange" class="form-control" />
+                                            <small class="form-text text-muted">Selecione o Câmbio</small>
+                                            <span asp-validation-for="Exchange" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="Steering">Direção</label>
+                                            <input asp-for="Steering" class="form-control" />
+                                            <small class="form-text text-muted">Selecione a Direção</small>
+                                            <span asp-validation-for="Steering" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label for="Manufacturing">Fabricação</label>
+                                            <input asp-for="Manufacturing" class="form-control" />
+                                            <small class="form-text text-muted">Ano de Fabricação</small>
+                                            <span asp-validation-for="Manufacturing" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="Mileage">Quilometragem</label>
+                                            <input asp-for="Mileage" class="form-control" />
+                                            <small class="form-text text-muted">Informe o tipo de combustível</small>
+                                            <span asp-validation-for="Mileage" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label for="Plate">Placa</label>
+                                            <input asp-for="Plate" class="form-control" />
+                                            <small class="form-text text-muted">Informe a Placa</small>
+                                            <span asp-validation-for="Plate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Chassis">Chassi</label>
+                                            <input asp-for="Chassis" class="form-control" />
+                                            <small class="form-text text-muted">Informe o número do Chassi do veículo</small>
+                                            <span asp-validation-for="Chassis" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="Observations">Observações</label>
+                                            <textarea asp-for="Observations" class="form-control" ></textarea>
+                                            <small class="form-text text-muted">Informe aqui observações relevantes sobre o veículo, como por exemplo: Trava Elétrica, Alarme, Som, etc.</small>
+                                            <span asp-validation-for="Observations" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="box-btn">
+                                            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
+                                            <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Atualizar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-</body>
-</html>

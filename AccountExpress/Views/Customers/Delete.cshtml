@@ -19,7 +19,8 @@
                     </div>
                     <div class="content-box">
                         <div class="row">
-                            <div class="col-md-4">
+
+                            @*<div class="col-md-4">
                                 <div class="form-group">
                                     <label for="Name">Nome</label>
                                     <p>@Html.DisplayFor(model => model.Name)</p>
@@ -102,14 +103,17 @@
                                     <label for="Name">CEP</label>
                                     <p>@Html.DisplayFor(model => model.CEP)</p>
                                 </div>
-                            </div>
+                            </div>*@
 
-                            <div class="col-md-12">
+                            <div class="col-md-8">
+                                <p>Tem certeza de que deseja remover o cliente <b>@Model.Name</b>? </p>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="box-btn">
                                     <form asp-action="Delete">
                                         <input type="hidden" asp-for="Id" />
-                                        <a asp-action="Index" class="btn btn-dark">Voltar</a>
-                                        <input type="submit" value="Apagar" class="btn btn-danger" />
+                                        <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
+                                        <button type="submit" class="btn btn-danger"><i class="fas fa-times"></i> Apagar</button>
                                     </form>
                                 </div>
                             </div>

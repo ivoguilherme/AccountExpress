@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
 
+/*
+    GENERAL
+*/
 body {
     font-family: 'Quicksand', sans-serif;
     background-color: #f5f5f5;
@@ -42,6 +45,32 @@ label {
     min-width: 18px;
 }
 
+table {
+    margin-bottom: 0px !important;
+}
+
+    table tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    table thead {
+        background-color: #f5f5f5;
+    }
+
+        table thead tr:hover {
+            background-color: #f5f5f5;
+        }
+
+    table tbody tr:last-child {
+        border-bottom: 1px solid #dee2e6;
+    }
+
+
+
+/*
+    /* NAV
+*/
+
 nav {
     background-color: #545454;
     border-bottom: 3px solid #18af8f;
@@ -64,15 +93,11 @@ nav {
         margin: 0 !important;
     }
 
-.btn {
-    line-height: 1rem !important;
-}
-
-nav .navbar-brand {
-    font-weight: 700;
-    color: #fff;
-    padding: 0 !important;
-}
+    nav .navbar-brand {
+        font-weight: 700;
+        color: #fff;
+        padding: 0 !important;
+    }
 
 aside {
     background-color: #ececec;
@@ -88,9 +113,11 @@ aside {
 }
 
     aside #profile {
-        margin: 15px 0;
-        width: 200px;
+        margin: 15px;
+        padding-bottom: 15px;
         text-align: center;
+        box-shadow: 0px 1px 0px 0px #c5c5c5;
+        border-bottom: 1px solid white;
     }
 
         aside #profile #img-profile {
@@ -307,10 +334,6 @@ aside {
             top: 10px;
         }
 
-    .wrapper .container-fluid .box {
-        margin-bottom: 30px;
-    }
-
     .wrapper .container-fluid .title-box {
     }
 
@@ -340,26 +363,27 @@ aside {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ececec", endColorstr="#c2c2c2", GradientType=1);
     }
 
-    .btn {
-        padding: 8px !important;
-    }
-
-.btn.default-btn {
-    color: #fff;
-    opacity: 0.9;
-    font-size: 0.9rem;
-    padding: 5px 10px;
-    transition: cubic-bezier(0.4, 0, 1, 1) 0.2s;
-    background: rgb(68, 68, 68);
-    background: -moz-linear-gradient(0deg, rgba(68, 68, 68, 1) 0%, rgba(34, 34, 34, 1) 100%);
-    background: -webkit-linear-gradient(0deg, rgba(68, 68, 68, 1) 0%, rgba(34, 34, 34, 1) 100%);
-    background: linear-gradient(0deg, rgba(68, 68, 68, 1) 0%, rgba(34, 34, 34, 1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#444444", endColorstr="#222222", GradientType=1);
+.btn {
+    padding: 8px !important;
+    line-height: 1rem !important;
 }
 
-    .btn.default-btn:hover {
-        opacity: 1;
+    .btn.default-btn {
+        color: #fff;
+        opacity: 0.9;
+        font-size: 0.9rem;
+        padding: 5px 10px;
+        transition: cubic-bezier(0.4, 0, 1, 1) 0.2s;
+        background: rgb(68, 68, 68);
+        background: -moz-linear-gradient(0deg, rgba(68, 68, 68, 1) 0%, rgba(34, 34, 34, 1) 100%);
+        background: -webkit-linear-gradient(0deg, rgba(68, 68, 68, 1) 0%, rgba(34, 34, 34, 1) 100%);
+        background: linear-gradient(0deg, rgba(68, 68, 68, 1) 0%, rgba(34, 34, 34, 1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#444444", endColorstr="#222222", GradientType=1);
     }
+
+        .btn.default-btn:hover {
+            opacity: 1;
+        }
 
 .box-btn {
     text-align: right;
@@ -380,6 +404,9 @@ aside {
         border-color: #0d7761 !important;
     }
 
+/*
+    TABLE CUSTOMERS
+*/
 .tb-customers th:nth-child(1) {
     width: 25%;
 }
@@ -389,19 +416,46 @@ aside {
 }
 
 .tb-customers th:nth-child(3) {
-    width: 12.5%;
-}
-
-.tb-customers th:nth-child(4) {
-    width: 12.5%;
-}
-
-.tb-customers th:nth-child(5) {
-    width: 15%;
-}
-
-.tb-customers th:nth-child(6) {
     width: 10%;
 }
 
+.tb-customers th:nth-child(4) {
+    width: 15%;
+}
 
+.tb-customers th:nth-child(5) {
+    width: 14%;
+}
+
+
+/*
+    TABLE VEHICLES
+*/
+.tb-vehicles th:nth-child(1) {
+    width: 20%;
+}
+
+.tb-vehicles th:nth-child(2) {
+    width: 25%;
+}
+
+.tb-vehicles th:nth-child(3) {
+    width: 15%;
+}
+
+.tb-vehicles th:nth-child(4) {
+    width: 15%;
+}
+
+.tb-vehicles th:nth-child(5) {
+    width: 15%;
+}
+
+/*
+    TABLE GENERAL
+*/
+.tb-customers :nth-child(6),
+.tb-vehicles th:nth-child(6) {
+    min-width: 130px;
+    width: 10%;
+}

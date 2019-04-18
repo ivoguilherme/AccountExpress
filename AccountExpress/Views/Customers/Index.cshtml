@@ -25,7 +25,7 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="box-btn">
-                                    <a asp-action="Create" class="btn btn-success"><i class="fas fa-user-plus"></i> Novo Cliente</a>
+                                    <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus"></i> Adicionar</a>
                                 </div>
                             </div>
                         </div>
@@ -135,8 +135,7 @@
                                                  @Html.DisplayFor(modelItem => item.CEP)
                                              </td>*@
                                         <td>
-                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fas fa-info"></i></a>
-                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-user-times"></i></a>
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fas fa-info"></i> Detalhes</a>
 
                                         </td>
                                     </tr>

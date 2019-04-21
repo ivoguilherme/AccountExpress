@@ -4,111 +4,103 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div data-simplebar class="wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box">
-
-                    <div class="title-wrapper">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4>Informações do Veículo</h4>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="box-btn">
-                                    <div>
-                                        <a asp-action="Index" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
-                                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info"><i class="fas fa-pen"></i> Editar</a>
-                                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"><i class="fas fa-times"></i> Apagar</a>
-                                    </div>
-                                </div>
-                            </div>
+<div class="col-md-12">
+    <div class="box">
+        <div class="title-wrapper">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Informações do Veículo</h4>
+                </div>
+                <div class="col-md-6">
+                    <div class="box-btn">
+                        <div>
+                            <a asp-action="Index" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info"><i class="fas fa-pen"></i> Editar</a>
+                            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"><i class="fas fa-times"></i> Apagar</a>
                         </div>
                     </div>
-                    <hr />
-                    <div class="content-box">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Marca</label>
-                                    <p>@Html.DisplayFor(model => model.Brands)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Modelo</label>
-                                    <p>@Html.DisplayFor(model => model.Model)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Tipo</label>
-                                    <p>@Html.DisplayFor(model => model.Type)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Portas</label>
-                                    <p>@Html.DisplayFor(model => model.Doors)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Cor</label>
-                                    <p>@Html.DisplayFor(model => model.Color)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Combustível</label>
-                                    <p>@Html.DisplayFor(model => model.Fuel)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Câmbio</label>
-                                    <p>@Html.DisplayFor(model => model.Exchange)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Direção</label>
-                                    <p>@Html.DisplayFor(model => model.Steering)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Fabricação</label>
-                                    <p>@Html.DisplayFor(model => model.Manufacturing)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Kilometragem</label>
-                                    <p>@Html.DisplayFor(model => model.Mileage)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Placa</label>
-                                    <p>@Html.DisplayFor(model => model.Plate)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Chassi</label>
-                                    <p>@Html.DisplayFor(model => model.Chassis)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="Name">Observações</label>
-                                    <p>@Html.DisplayFor(model => model.Observations)</p>
-                                </div>
-                            </div>
-
-                        </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="content-box">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Marca</label>
+                        <p>@Html.DisplayFor(model => model.Brands)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Modelo</label>
+                        <p>@Html.DisplayFor(model => model.Model)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Tipo</label>
+                        <p>@Html.DisplayFor(model => model.Type)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Portas</label>
+                        <p>@Html.DisplayFor(model => model.Doors)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Cor</label>
+                        <p>@Html.DisplayFor(model => model.Color)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Combustível</label>
+                        <p>@Html.DisplayFor(model => model.Fuel)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Câmbio</label>
+                        <p>@Html.DisplayFor(model => model.Exchange)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Direção</label>
+                        <p>@Html.DisplayFor(model => model.Steering)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Fabricação</label>
+                        <p>@Html.DisplayFor(model => model.Manufacturing)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Kilometragem</label>
+                        <p>@Html.DisplayFor(model => model.Mileage)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Placa</label>
+                        <p>@Html.DisplayFor(model => model.Plate)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Chassi</label>
+                        <p>@Html.DisplayFor(model => model.Chassis)</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="Name">Observações</label>
+                        <p>@Html.DisplayFor(model => model.Observations)</p>
                     </div>
                 </div>
             </div>

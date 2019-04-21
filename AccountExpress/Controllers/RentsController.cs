@@ -10,22 +10,22 @@ using AccountExpress.Models;
 
 namespace AccountExpress.Controllers
 {
-    public class VCrudController : Controller
+    public class RentsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public VCrudController(ApplicationDbContext context)
+        public RentsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: VCrud
-        //public async Task<IActionResult> Index()
-        //{
-        //    return View(await _context.Vehicles.ToListAsync());
-        //}
+        // GET: Rents
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Rent.ToListAsync());
+        }
 
-        // GET: Details/5
+        // GET: Rents/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace AccountExpress.Controllers
                 return NotFound();
             }
 
-            var vehicle = await _context.Vehicles
+            var rent = await _context.Rent
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (vehicle == null)
+            if (rent == null)
             {
                 return NotFound();
             }
 
-            return View(vehicle);
+            return View(rent);
         }
 
-        // GET: Create
-        public IActionResult VehicleRegistration()
+        // GET: Rents/Create
+        public IActionResult Create()
         {
             return View();
         }
 
-        // POST: VCrud/Create
+        // POST: Rents/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> VehicleRegistration([Bind("Id,Brands,Model,Type,Doors,Color,Fuel,Exchange,Steering,Manufacturing")] Vehicle vehicle)
+        public async Task<IActionResult> Create([Bind("Id")] Rent rent)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(vehicle);
+                _context.Add(rent);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(VehicleRegistration));
+                return RedirectToAction(nameof(Index));
             }
-            return View(vehicle);
+            return View(rent);
         }
 
-        // GET: Edit/5
+        // GET: Rents/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace AccountExpress.Controllers
                 return NotFound();
             }
 
-            var vehicle = await _context.Vehicles.FindAsync(id);
-            if (vehicle == null)
+            var rent = await _context.Rent.FindAsync(id);
+            if (rent == null)
             {
                 return NotFound();
             }
-            return View(vehicle);
+            return View(rent);
         }
 
-        // POST: Edit/5
+        // POST: Rents/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Brands,Model,Type,Doors,Color,Fuel,Exchange,Steering,Manufacturing")] Vehicle vehicle)
+        public async Task<IActionResult> Edit(int id, [Bind("Id")] Rent rent)
         {
-            if (id != vehicle.Id)
+            if (id != rent.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace AccountExpress.Controllers
             {
                 try
                 {
-                    _context.Update(vehicle);
+                    _context.Update(rent);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!VehicleExists(vehicle.Id))
+                    if (!RentExists(rent.Id))
                     {
                         return NotFound();
                     }
@@ -111,12 +111,12 @@ namespace AccountExpress.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(VehicleRegistration));
+                return RedirectToAction(nameof(Index));
             }
-            return View(vehicle);
+            return View(rent);
         }
 
-        // GET: Delete/5
+        // GET: Rents/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace AccountExpress.Controllers
                 return NotFound();
             }
 
-            var vehicle = await _context.Vehicles
+            var rent = await _context.Rent
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (vehicle == null)
+            if (rent == null)
             {
                 return NotFound();
             }
 
-            return View(vehicle);
+            return View(rent);
         }
 
-        // POST: Delete/5
+        // POST: Rents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var vehicle = await _context.Vehicles.FindAsync(id);
-            _context.Vehicles.Remove(vehicle);
+            var rent = await _context.Rent.FindAsync(id);
+            _context.Rent.Remove(rent);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(VehicleRegistration));
+            return RedirectToAction(nameof(Index));
         }
 
-        private bool VehicleExists(int id)
+        private bool RentExists(int id)
         {
-            return _context.Vehicles.Any(e => e.Id == id);
+            return _context.Rent.Any(e => e.Id == id);
         }
     }
 }

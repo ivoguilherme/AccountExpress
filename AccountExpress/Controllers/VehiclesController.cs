@@ -62,7 +62,7 @@ namespace AccountExpress.Controllers
             {
                 _context.Add(vehicle);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Create));
+                return RedirectToAction(nameof(Index));
             }
             return View(vehicle);
         }
@@ -113,7 +113,7 @@ namespace AccountExpress.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Create));
+                return RedirectToAction(nameof(Index));
             }
             return View(vehicle);
         }
@@ -144,7 +144,7 @@ namespace AccountExpress.Controllers
             var vehicle = await _context.Vehicles.FindAsync(id);
             _context.Vehicles.Remove(vehicle);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Create));
+            return RedirectToAction(nameof(Index));
         }
 
         private bool VehicleExists(int id)

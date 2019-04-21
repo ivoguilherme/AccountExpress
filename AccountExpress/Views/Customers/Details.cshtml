@@ -1,125 +1,115 @@
-﻿@model AccountExpress.Models.Customers
+﻿@model AccountExpress.Models.Customer;
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div data-simplebar class="wrapper">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box">
-
-                    <div class="title-wrapper">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4>Informações do Cliente</h4>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="box-btn">
-                                    <div>
-                                        <a asp-action="Index" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
-                                        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info"><i class="fas fa-pen"></i> Editar</a>
-                                        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"><i class="fas fa-times"></i> Apagar</a>
-                                    </div>
-                                </div>
-                            </div>
+<div class="col-md-12">
+    <div class="box">
+        <div class="title-wrapper">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Informações do Cliente</h4>
+                </div>
+                <div class="col-md-6">
+                    <div class="box-btn">
+                        <div>
+                            <a asp-action="Index" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info"><i class="fas fa-pen"></i> Editar</a>
+                            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"><i class="fas fa-times"></i> Apagar</a>
                         </div>
                     </div>
-                    <hr />
-                    <div class="content-box">
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Nome</label>
-                                    <p>@Html.DisplayFor(model => model.Name)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">E-mail</label>
-                                    <p>@Html.DisplayFor(model => model.Email)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Data de Nascimento</label>
-                                    <p>@Html.DisplayFor(model => model.DateOfBirth)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">CPF</label>
-                                    <p>@Html.DisplayFor(model => model.CPF)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">RG</label>
-                                    <p>@Html.DisplayFor(model => model.RG)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">CNH</label>
-                                    <p>@Html.DisplayFor(model => model.CNH)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Celular</label>
-                                    <p>@Html.DisplayFor(model => model.Phone)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Endereço</label>
-                                    <p>@Html.DisplayFor(model => model.Adress)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Número</label>
-                                    <p>@Html.DisplayFor(model => model.AdressNumber)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Complemento</label>
-                                    <p>@Html.DisplayFor(model => model.Complement)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Bairro</label>
-                                    <p>@Html.DisplayFor(model => model.District)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Cidade</label>
-                                    <p>@Html.DisplayFor(model => model.City)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">Estado</label>
-                                    <p>@Html.DisplayFor(model => model.State)</p>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="Name">CEP</label>
-                                    <p>@Html.DisplayFor(model => model.CEP)</p>
-                                </div>
-                            </div>
-
-                        </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="content-box">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Nome</label>
+                        <p>@Html.DisplayFor(model => model.Name)</p>
                     </div>
-
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">E-mail</label>
+                        <p>@Html.DisplayFor(model => model.Email)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Data de Nascimento</label>
+                        <p>@Html.DisplayFor(model => model.DateOfBirth)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">CPF</label>
+                        <p>@Html.DisplayFor(model => model.CPF)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">RG</label>
+                        <p>@Html.DisplayFor(model => model.RG)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">CNH</label>
+                        <p>@Html.DisplayFor(model => model.CNH)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Celular</label>
+                        <p>@Html.DisplayFor(model => model.Phone)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Endereço</label>
+                        <p>@Html.DisplayFor(model => model.Adress)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Número</label>
+                        <p>@Html.DisplayFor(model => model.AdressNumber)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Complemento</label>
+                        <p>@Html.DisplayFor(model => model.Complement)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Bairro</label>
+                        <p>@Html.DisplayFor(model => model.District)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Cidade</label>
+                        <p>@Html.DisplayFor(model => model.City)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">Estado</label>
+                        <p>@Html.DisplayFor(model => model.State)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Name">CEP</label>
+                        <p>@Html.DisplayFor(model => model.CEP)</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-

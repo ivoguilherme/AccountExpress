@@ -9,9 +9,9 @@ namespace AccountExpress.Models
     {
         public int Id { get; set; }
         public int IdCustomers { get; set; }
-        public ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
         public int IdVehicles { get; set; }
-        public ICollection<Vehicle> Vehicles { get; set; }
+        public virtual ICollection<Vehicle> Vehicles { get; set; }
         public DateTime PickupDate { get; set; }
         public DateTime ReturnDate { get; set; }
         public string TypeOfRent { get; set; }

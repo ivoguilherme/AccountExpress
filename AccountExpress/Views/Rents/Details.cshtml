@@ -1,19 +1,73 @@
-﻿@model AccountExpress.Models.Rent
+﻿@model AccountExpress.Models.Rent;
 
 @{
-    ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Rent</h4>
-    <hr />
-    <dl class="row">
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="col-md-12">
+    <div class="box">
+        <div class="title-wrapper">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Informações do Cliente</h4>
+                </div>
+                <div class="col-md-6">
+                    <div class="box-btn">
+                        <div>
+                            <a asp-action="Index" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info"><i class="fas fa-pen"></i> Editar</a>
+                            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"><i class="fas fa-times"></i> Apagar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="content-box">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="IdCustomers">Cliente</label>
+                        <p>@Html.DisplayFor(model => model.IdCustomers)</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="IdVehicles">Veículo</label>
+                        <p>@Html.DisplayFor(model => model.IdVehicles)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="PickupDate">Data de Retirada</label>
+                        <p>@Html.DisplayFor(model => model.PickupDate)</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="ReturnDate">Data de Devolução</label>
+                        <p>@Html.DisplayFor(model => model.ReturnDate)</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="TypeOfRent">Typo de Aluguel</label>
+                        <p>@Html.DisplayFor(model => model.TypeOfRent)</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="Daily">Diária</label>
+                        <p>@Html.DisplayFor(model => model.Daily)</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="DelayRate">Taxa por Atraso</label>
+                        <p>@Html.DisplayFor(model => model.DelayRate)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

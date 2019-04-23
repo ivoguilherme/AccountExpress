@@ -9,12 +9,12 @@ namespace AccountExpress.Models
         public VehicleBrands Brands { get; set; }
         public string Model { get; set; }
         public VehicleType Type { get; set; }
-        public string Doors { get; set; }
+        public VehicleDoors Doors { get; set; }
         public string Color { get; set; }
-        public string Fuel { get; set; }
-        public string Exchange { get; set; }
-        public string Steering { get; set; }
-        public string Manufacturing { get; set; }
+        public VehicleFuel Fuel { get; set; }
+        public VehicleExchange Exchange { get; set; }
+        public VehicleSteering Steering { get; set; }
+        public VehicleManufacturing Manufacturing { get; set; }
         public string Mileage { get; set; }
         public string Plate { get; set; }
         public string Chassis { get; set; }

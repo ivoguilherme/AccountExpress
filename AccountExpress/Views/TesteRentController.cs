@@ -7,30 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AccountExpress.Data;
 using AccountExpress.Models;
-using AccountExpress.Models.Enums;
-using AccountExpress.Models.Extensions;
 
-namespace AccountExpress.Controllers
+namespace AccountExpress.Views
 {
-    public class RentsController : Controller
+    public class TesteRentController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public RentsController(ApplicationDbContext context)
+        public TesteRentController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Rents
+        // GET: TesteRent
         public async Task<IActionResult> Index()
         {
-            //IEnumerable<Rent> rents = _context.Rent.ToArray();
-            //ViewBag.TesteRents = rents.Select(c => new SelectListItem() { Text = c.IdCustomers.ToString(), Value = c.IdVehicles.ToString() }).ToList();
-
             return View(await _context.Rent.ToListAsync());
         }
 
-        // GET: Rents/Details/5
+        // GET: TesteRent/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -48,24 +43,13 @@ namespace AccountExpress.Controllers
             return View(rent);
         }
 
-        // GET: Rents/Create
+        // GET: TesteRent/Create
         public IActionResult Create()
         {
-            IEnumerable<Customer> customers = _context.Customers.ToArray();
-            ViewBag.Customers = customers.Select(c => new SelectListItem() { Text = c.Name, Value = c.Id.ToString() }).ToList();
-
-            IEnumerable<Vehicle> vehicles = _context.Vehicles.ToArray();
-            ViewBag.Vehicles = vehicles.Select(v => new SelectListItem() { Text = string.Concat(v.Brands, " - ", v.Model), Value = v.Id.ToString() }).ToList();
-
-            ViewBag.RentType = new SelectList(Enum.GetValues(typeof(RentType)).Cast<RentType>().Select(v => new SelectListItem
-            {
-                Text = v.ObterDescricao(),
-                Value = ((int)v).ToString()
-            }).ToList(), "Value", "Text");
             return View();
-        }//
+        }
 
-        // POST: Rents/Create
+        // POST: TesteRent/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -74,7 +58,6 @@ namespace AccountExpress.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 _context.Add(rent);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -82,7 +65,7 @@ namespace AccountExpress.Controllers
             return View(rent);
         }
 
-        // GET: Rents/Edit/5
+        // GET: TesteRent/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -91,9 +74,6 @@ namespace AccountExpress.Controllers
             }
 
             var rent = await _context.Rent.FindAsync(id);
-            var customers = await _context.Customers.ToListAsync();
-            var vehicles = await _context.Vehicles.ToListAsync();
-
             if (rent == null)
             {
                 return NotFound();
@@ -101,7 +81,7 @@ namespace AccountExpress.Controllers
             return View(rent);
         }
 
-        // POST: Rents/Edit/5
+        // POST: TesteRent/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -136,7 +116,7 @@ namespace AccountExpress.Controllers
             return View(rent);
         }
 
-        // GET: Rents/Delete/5
+        // GET: TesteRent/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -154,7 +134,7 @@ namespace AccountExpress.Controllers
             return View(rent);
         }
 
-        // POST: Rents/Delete/5
+        // POST: TesteRent/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

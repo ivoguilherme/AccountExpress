@@ -1,30 +1,74 @@
 ﻿@model IEnumerable<AccountExpress.Models.Rent>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Gerenciar Clientes | ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="col-md-12">
+    <div class="box">
+        <div class="title-wrapper">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4>Administrar Clientes</h4>
+                </div>
+                <div class="col-md-2">
+                    <div class="box-btn">
+                        <a asp-action="Create" class="btn btn-success"><i class="fas fa-plus"></i> Adicionar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-box">
+            <table class="table tb-customers">
+                <thead>
+                    <tr>
+                        <th>
+                            Cliente
+                        </th>
+                        <th>
+                            Veículo
+                        </th>
+                        <th>
+                            Retirada
+                        </th>
+                        <th>
+                            Devolução
+                        </th>
+                        <th>
+                            Tipo de Aluguel
+                        </th>
+                        <th>
+                            Ações
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdCustomers)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdVehicles)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PickupDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ReturnDate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TypeOfRent)
+                            </td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fas fa-info"></i> Detalhes</a>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+                            </td>
+                        </tr>
+                    }
+            </table>
+        </div>
+    </div>
+</div>

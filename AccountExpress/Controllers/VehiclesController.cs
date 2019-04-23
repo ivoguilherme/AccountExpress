@@ -121,12 +121,56 @@ namespace AccountExpress.Controllers
             }
 
             var vehicle = await _context.Vehicles.FindAsync(id);
-            ViewBag.vehicleBrandsEdit = new SelectList(Enum.GetValues(typeof(VehicleBrands)).Cast<VehicleBrands>().Select(vm => new SelectListItem
+
+            ViewBag.vehicleBrandEdit = new SelectList(Enum.GetValues(typeof(VehicleBrands)).Cast<VehicleBrands>().Select(vm => new SelectListItem
             {
                 Text = vm.ObterDescricao(),
                 Value = ((int)vm).ToString(),
                 Selected = vm == vehicle.Brands
             }).ToList(), "Value", "Text");
+
+            ViewBag.vehicleTypeEdit = new SelectList(Enum.GetValues(typeof(VehicleType)).Cast<VehicleType>().Select(vt => new SelectListItem
+            {
+                Text = vt.ObterDescricao(),
+                Value = ((int)vt).ToString(),
+                Selected = vt == vehicle.Type
+            }).ToList(), "Value", "Text");
+
+            ViewBag.vehicleDoorsEdit = new SelectList(Enum.GetValues(typeof(VehicleDoors)).Cast<VehicleDoors>().Select(vd => new SelectListItem
+            {
+                Text = vd.ObterDescricao(),
+                Value = ((int)vd).ToString(),
+                Selected = vd == vehicle.Doors
+            }).ToList(), "Value", "Text");
+
+            ViewBag.vehicleFuelEdit = new SelectList(Enum.GetValues(typeof(VehicleFuel)).Cast<VehicleFuel>().Select(vf => new SelectListItem
+            {
+                Text = vf.ObterDescricao(),
+                Value = ((int)vf).ToString(),
+                Selected = vf == vehicle.Fuel
+            }).ToList(), "Value", "Text");
+
+            ViewBag.vehicleExchangeEdit = new SelectList(Enum.GetValues(typeof(VehicleExchange)).Cast<VehicleExchange>().Select(ve => new SelectListItem
+            {
+                Text = ve.ObterDescricao(),
+                Value = ((int)ve).ToString(),
+                Selected = ve == vehicle.Exchange
+            }).ToList(), "Value", "Text");
+
+            ViewBag.vehicleSteeringEdit = new SelectList(Enum.GetValues(typeof(VehicleSteering)).Cast<VehicleSteering>().Select(ve => new SelectListItem
+            {
+                Text = ve.ObterDescricao(),
+                Value = ((int)ve).ToString(),
+                Selected = ve == vehicle.Steering
+            }).ToList(), "Value", "Text");
+
+            ViewBag.vehicleManufacturingEdit = new SelectList(Enum.GetValues(typeof(VehicleManufacturing)).Cast<VehicleManufacturing>().Select(vm => new SelectListItem
+            {
+                Text = vm.ObterDescricao(),
+                Value = ((int)vm).ToString(),
+                Selected = vm == vehicle.Manufacturing
+            }).ToList(), "Value", "Text");
+
 
 
             if (vehicle == null)
@@ -141,7 +185,7 @@ namespace AccountExpress.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Brands,Model,Type,Doors,Color,Fuel,Exchange,Steering,Manufacturing")] Vehicle vehicle)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Brands,Chassis,Model,Type,Doors,Color,Fuel,Exchange,Steering,Manufacturing,Mileage,Observations,Plate")] Vehicle vehicle)
         {
             if (id != vehicle.Id)
             {

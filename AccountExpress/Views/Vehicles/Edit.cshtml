@@ -21,7 +21,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="Brands">Marca</label>
-                            <select asp-for="Brands" asp-items="@ViewBag.vehicleBrandsEdit" class="form-control"></select>
+                            <select asp-for="Brands" asp-items="@ViewBag.vehicleBrandEdit" class="form-control"></select>
                             <small class="form-text text-muted">Selecione a marca do veículo</small>
                             <span asp-validation-for="Brands" class="text-danger"></span>
                         </div>
@@ -37,7 +37,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="Type">Tipo</label>
-                            <input asp-for="Type" class="form-control" />
+                            <select asp-for="Type" asp-items="@ViewBag.vehicleTypeEdit" class="form-control"></select>
                             <small class="form-text text-muted">Selecione o tipo de veículo</small>
                             <span asp-validation-for="Type" class="text-danger"></span>
                         </div>
@@ -45,7 +45,7 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Doors">Portas</label>
-                            <input asp-for="Doors" class="form-control" />
+                            <select asp-for="Doors" asp-items="@ViewBag.vehicleDoorsEdit" class="form-control"></select>
                             <small class="form-text text-muted">Quantidade de Portas</small>
                             <span asp-validation-for="Doors" class="text-danger"></span>
                         </div>
@@ -61,7 +61,7 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Fuel">Combustível</label>
-                            <input asp-for="Fuel" class="form-control" />
+                            <select asp-for="Fuel" asp-items="@ViewBag.vehicleFuelEdit" class="form-control"></select>
                             <small class="form-text text-muted">Selecione o Combustível</small>
                             <span asp-validation-for="Fuel" class="text-danger"></span>
                         </div>
@@ -69,7 +69,7 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Exchange">Câmbio</label>
-                            <input asp-for="Exchange" class="form-control" />
+                            <select asp-for="Exchange" asp-items="@ViewBag.vehicleExchangeEdit" class="form-control"></select>
                             <small class="form-text text-muted">Selecione o Câmbio</small>
                             <span asp-validation-for="Exchange" class="text-danger"></span>
                         </div>
@@ -77,7 +77,7 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Steering">Direção</label>
-                            <input asp-for="Steering" class="form-control" />
+                            <select asp-for="Steering" asp-items="@ViewBag.vehicleSteeringEdit" class="form-control"></select>
                             <small class="form-text text-muted">Selecione a Direção</small>
                             <span asp-validation-for="Steering" class="text-danger"></span>
                         </div>
@@ -85,7 +85,7 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Manufacturing">Fabricação</label>
-                            <input asp-for="Manufacturing" class="form-control" />
+                            <select asp-for="Manufacturing" asp-items="@ViewBag.vehicleManufacturingEdit" class="form-control"></select>
                             <small class="form-text text-muted">Ano de Fabricação</small>
                             <span asp-validation-for="Manufacturing" class="text-danger"></span>
                         </div>

@@ -1,30 +1,102 @@
-﻿@model AccountExpress.Models.Rent
+﻿@model AccountExpress.Models.Rent;
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Alugar | ";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
-
-<h4>Rent</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+<div class="col-md-12">
+    <div class="box">
+        <div class="title-wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4>Alugar Carro</h4>
+                </div>
             </div>
-        </form>
+        </div>
+        <div class="content-box">
+            <form asp-action="Create">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">Cliente</label>
+                            <select class="form-control" id="" name="">
+                                <option>Cliente 1</option>
+                                <option>Cliente 2</option>
+                                <option>Cliente 3</option>
+                                <option>Cliente 4</option>
+                                <option>Cliente 5</option>
+                            </select>
+                            <small class="form-text text-muted">Selecione o cliente</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="">Veículo</label>
+                            <select class="form-control" id="" name="">
+                                <option>Veículo 1</option>
+                                <option>Veículo 2</option>
+                                <option>Veículo 3</option>
+                                <option>Veículo 4</option>
+                                <option>Veículo 5</option>
+                            </select>
+                            <small class="form-text text-muted">Selecione o veículo</small>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="">Diária</label>
+                            <input type="text" class="form-control" id="" name="">
+                            <small class="form-text text-muted">Informe o valor da diária</small>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="">Taxa por Atraso</label>
+                            <input type="text" class="form-control" id="" name="">
+                            <small class="form-text text-muted">Informe a taxa</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">Data da Retirada</label>
+                            <input type="date" class="form-control" id="" name="">
+                            <small class="form-text text-muted">Informe a data de retirada</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">Data da Devolução</label>
+                            <input type="date" class="form-control" id="" name="">
+                            <small class="form-text text-muted">Informe a data de devolução</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="CPF">Tipo de Aluguel</label>
+                            <select class="form-control" id="CPF" name="CPF">
+                                <option>Normal</option>
+                                <option>Promocional (20%)</option>
+                                <option>Novo Cliente (10%)</option>
+                            </select>
+                            <small class="form-text text-muted">Informe o tipo de aluguel</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="">Ponto de Devolução</label>
+                            <input type="text" class="form-control" id="" name="">
+                            <small class="form-text text-muted">Informe o local de devolução</small>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="box-btn">
+                            <a asp-action="Index" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
+                            <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Cadastrar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

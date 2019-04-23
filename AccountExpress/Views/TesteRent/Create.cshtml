@@ -1,0 +1,61 @@
+﻿@model AccountExpress.Models.Rent
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Rent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdCustomers" class="control-label"></label>
+                <input asp-for="IdCustomers" class="form-control" />
+                <span asp-validation-for="IdCustomers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdVehicles" class="control-label"></label>
+                <input asp-for="IdVehicles" class="form-control" />
+                <span asp-validation-for="IdVehicles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PickupDate" class="control-label"></label>
+                <input asp-for="PickupDate" class="form-control" />
+                <span asp-validation-for="PickupDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReturnDate" class="control-label"></label>
+                <input asp-for="ReturnDate" class="form-control" />
+                <span asp-validation-for="ReturnDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TypeOfRent" class="control-label"></label>
+                <input asp-for="TypeOfRent" class="form-control" />
+                <span asp-validation-for="TypeOfRent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Daily" class="control-label"></label>
+                <input asp-for="Daily" class="form-control" />
+                <span asp-validation-for="Daily" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DelayRate" class="control-label"></label>
+                <input asp-for="DelayRate" class="form-control" />
+                <span asp-validation-for="DelayRate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

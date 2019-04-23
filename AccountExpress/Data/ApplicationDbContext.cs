@@ -13,6 +13,6 @@ namespace AccountExpress.Data
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
-        public DbSet<AccountExpress.Models.Rent> Rent { get; set; }
+        public DbSet<Rent> Rent { get; set; }
     }
 }

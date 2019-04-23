@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccountExpress.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190423020855_Vehicle-new")]
-    partial class Vehiclenew
+    [Migration("20190423164044_Inicial")]
+    partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
+                .HasAnnotation("ProductVersion", "2.2.1-servicing-10028")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("AccountExpress.Models.Customer", b =>
@@ -50,13 +50,9 @@ namespace AccountExpress.Migrations
 
                     b.Property<string>("RG");
 
-                    b.Property<int?>("RentId");
-
                     b.Property<string>("State");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RentId");
 
                     b.ToTable("Customers");
                 });
@@ -66,13 +62,11 @@ namespace AccountExpress.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("CustomerId");
+
                     b.Property<double>("Daily");
 
                     b.Property<double>("DelayRate");
-
-                    b.Property<int>("IdCustomers");
-
-                    b.Property<int>("IdVehicles");
 
                     b.Property<DateTime>("PickupDate");
 
@@ -80,7 +74,13 @@ namespace AccountExpress.Migrations
 
                     b.Property<string>("TypeOfRent");
 
+                    b.Property<int>("VehicleId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("VehicleId");
 
                     b.ToTable("Rent");
                 });
@@ -96,13 +96,13 @@ namespace AccountExpress.Migrations
 
                     b.Property<string>("Color");
 
-                    b.Property<string>("Doors");
+                    b.Property<int>("Doors");
 
-                    b.Property<string>("Exchange");
+                    b.Property<int>("Exchange");
 
-                    b.Property<string>("Fuel");
+                    b.Property<int>("Fuel");
 
-                    b.Property<string>("Manufacturing");
+                    b.Property<int>("Manufacturing");
 
                     b.Property<string>("Mileage");
 
@@ -112,15 +112,11 @@ namespace AccountExpress.Migrations
 
                     b.Property<string>("Plate");
 
-                    b.Property<int?>("RentId");
+                    b.Property<int>("Steering");
 
-                    b.Property<string>("Steering");
-
-                    b.Property<string>("Type");
+                    b.Property<int>("Type");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RentId");
 
                     b.ToTable("Vehicles");
                 });
@@ -286,18 +282,17 @@ namespace AccountExpress.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("AccountExpress.Models.Customer", b =>
+            modelBuilder.Entity("AccountExpress.Models.Rent", b =>
                 {
-                    b.HasOne("AccountExpress.Models.Rent")
-                        .WithMany("Customers")
-                        .HasForeignKey("RentId");
-                });
+                    b.HasOne("AccountExpress.Models.Customer", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity("AccountExpress.Models.Vehicle", b =>
-                {
-                    b.HasOne("AccountExpress.Models.Rent")
-                        .WithMany("Vehicles")
-                        .HasForeignKey("RentId");
+                    b.HasOne("AccountExpress.Models.Vehicle", "Vehicle")
+                        .WithMany()
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

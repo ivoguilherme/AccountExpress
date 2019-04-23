@@ -2,13 +2,13 @@
 
 namespace AccountExpress.Migrations
 {
-    public partial class Vehiclenew : Migration
+    public partial class alteradoTipoColunaTypeOfRent : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<int>(
-                name: "Brands",
-                table: "Vehicles",
+                name: "TypeOfRent",
+                table: "Rent",
                 nullable: false,
                 oldClrType: typeof(string),
                 oldNullable: true);
@@ -17,8 +17,8 @@ namespace AccountExpress.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "Brands",
-                table: "Vehicles",
+                name: "TypeOfRent",
+                table: "Rent",
                 nullable: true,
                 oldClrType: typeof(int));
         }

@@ -9,6 +9,7 @@ using AccountExpress.Data;
 using AccountExpress.Models;
 using AccountExpress.Models.Enums;
 using AccountExpress.Models.Extensions;
+using AccountExpress.ViewModels;
 
 namespace AccountExpress.Controllers
 {
@@ -24,10 +25,9 @@ namespace AccountExpress.Controllers
         // GET: Rents
         public async Task<IActionResult> Index()
         {
-            //IEnumerable<Rent> rents = _context.Rent.ToArray();
-            //ViewBag.TesteRents = rents.Select(c => new SelectListItem() { Text = c.IdCustomers.ToString(), Value = c.IdVehicles.ToString() }).ToList();
-
-            return View(await _context.Rent.ToListAsync());
+            Rent[] rentsModel = await _context.Rent.Include(r => r.Vehicle).Include(r => r.Customer).ToArrayAsync();
+            var rentsViewModel = rentsModel.Select(rent => RentMapper.ModelToViewModel(rent)).ToArray();
+            return View(rentsViewModel);
         }
 
         // GET: Rents/Details/5
@@ -70,7 +70,7 @@ namespace AccountExpress.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IdCustomers,IdVehicles,PickupDate,ReturnDate,TypeOfRent,Daily,DelayRate")] Rent rent)
+        public async Task<IActionResult> Create([Bind("Id,CustomerId,VehicleId,PickupDate,ReturnDate,TypeOfRent,Daily,DelayRate")] Rent rent)
         {
             if (ModelState.IsValid)
             {

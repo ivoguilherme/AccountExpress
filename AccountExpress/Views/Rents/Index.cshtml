@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AccountExpress.Models.Rent>
+﻿@model IEnumerable<AccountExpress.ViewModels.RentViewModel>
 
 @{
     ViewData["Title"] = "Gerenciar Clientes | ";
@@ -48,10 +48,10 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdCustomers)
+                                @Html.DisplayFor(modelItem => item.Customer.Name)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdVehicles)
+                                @Html.DisplayFor(modelItem => item.Vehicle.Brands)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.PickupDate)

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AccountExpress.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Inicial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -81,13 +81,13 @@ namespace AccountExpress.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Brands = table.Column<int>(nullable: false),
                     Model = table.Column<string>(nullable: true),
-                    Type = table.Column<string>(nullable: true),
-                    Doors = table.Column<string>(nullable: true),
+                    Type = table.Column<int>(nullable: false),
+                    Doors = table.Column<int>(nullable: false),
                     Color = table.Column<string>(nullable: true),
-                    Fuel = table.Column<string>(nullable: true),
-                    Exchange = table.Column<string>(nullable: true),
-                    Steering = table.Column<string>(nullable: true),
-                    Manufacturing = table.Column<string>(nullable: true),
+                    Fuel = table.Column<int>(nullable: false),
+                    Exchange = table.Column<int>(nullable: false),
+                    Steering = table.Column<int>(nullable: false),
+                    Manufacturing = table.Column<int>(nullable: false),
                     Mileage = table.Column<string>(nullable: true),
                     Plate = table.Column<string>(nullable: true),
                     Chassis = table.Column<string>(nullable: true),
@@ -204,6 +204,37 @@ namespace AccountExpress.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Rent",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    CustomerId = table.Column<int>(nullable: false),
+                    VehicleId = table.Column<int>(nullable: false),
+                    PickupDate = table.Column<DateTime>(nullable: false),
+                    ReturnDate = table.Column<DateTime>(nullable: false),
+                    TypeOfRent = table.Column<string>(nullable: true),
+                    Daily = table.Column<double>(nullable: false),
+                    DelayRate = table.Column<double>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rent", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Rent_Customers_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Rent_Vehicles_VehicleId",
+                        column: x => x.VehicleId,
+                        principalTable: "Vehicles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -240,6 +271,16 @@ namespace AccountExpress.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Rent_CustomerId",
+                table: "Rent",
+                column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Rent_VehicleId",
+                table: "Rent",
+                column: "VehicleId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -260,16 +301,19 @@ namespace AccountExpress.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Customers");
-
-            migrationBuilder.DropTable(
-                name: "Vehicles");
+                name: "Rent");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Customers");
+
+            migrationBuilder.DropTable(
+                name: "Vehicles");
         }
     }
 }

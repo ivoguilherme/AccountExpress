@@ -5,9 +5,10 @@ namespace AccountExpress.Models
     public class Vehicle
     {
         public int Id { get; set; }
-        public string Brands { get; set; }
+        //public string Brands { get; set; }
+        public VehicleBrands Brands { get; set; }
         public string Model { get; set; }
-        public string Type { get; set; }
+        public VehicleType Type { get; set; }
         public string Doors { get; set; }
         public string Color { get; set; }
         public string Fuel { get; set; }

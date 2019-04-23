@@ -21,7 +21,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="Brands">Marca</label>
-                            <input asp-for="Brands" class="form-control" />
+                            <select asp-for="Brands" asp-items="@ViewBag.vehicleBrandsEdit" class="form-control"></select>
                             <small class="form-text text-muted">Selecione a marca do veículo</small>
                             <span asp-validation-for="Brands" class="text-danger"></span>
                         </div>

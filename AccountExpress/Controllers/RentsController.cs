@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AccountExpress.Data;
 using AccountExpress.Models;
+using AccountExpress.Models.Enums;
+using AccountExpress.Models.Extensions;
 
 namespace AccountExpress.Controllers
 {
@@ -46,8 +48,19 @@ namespace AccountExpress.Controllers
         // GET: Rents/Create
         public IActionResult Create()
         {
+            IEnumerable<Customer> customers = _context.Customers.ToArray();
+            ViewBag.Customers = customers.Select(c => new SelectListItem() { Text = c.Name, Value = c.Id.ToString() }).ToList();
+
+            IEnumerable<Vehicle> vehicles = _context.Vehicles.ToArray();
+            ViewBag.Vehicles = vehicles.Select(v => new SelectListItem() { Text = string.Concat(v.Brands, " - ", v.Model), Value = v.Id.ToString() }).ToList();
+
+            ViewBag.RentType = new SelectList(Enum.GetValues(typeof(RentType)).Cast<RentType>().Select(v => new SelectListItem
+            {
+                Text = v.ObterDescricao(),
+                Value = ((int)v).ToString()
+            }).ToList(), "Value", "Text");
             return View();
-        }
+        }//
 
         // POST: Rents/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -58,6 +71,7 @@ namespace AccountExpress.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 _context.Add(rent);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -74,6 +88,10 @@ namespace AccountExpress.Controllers
             }
 
             var rent = await _context.Rent.FindAsync(id);
+
+            //IEnumerable<Customer> customer = _context.Customers.ToArray();
+            //ViewBag.CustomerEdit = new SelectList(customer, "Id", "Name", rent.IdCustomers);
+
             if (rent == null)
             {
                 return NotFound();

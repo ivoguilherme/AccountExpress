@@ -6,6 +6,9 @@ using AccountExpress.Data;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using AccountExpress.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using AccountExpress.Models.Extensions;
+using System.Collections.Generic;
 
 namespace AccountExpress.Controllers
 {
@@ -25,9 +28,51 @@ namespace AccountExpress.Controllers
 
         public IActionResult Create()
         {
+            ViewBag.VehicleBrands = new SelectList(Enum.GetValues(typeof(VehicleBrands)).Cast<VehicleBrands>().Select(vb => new SelectListItem
+            {
+                Text = vb.ToString(),
+                Value = ((int)vb).ToString()
+            }).ToList(), "Value", "Text");
+
+            ViewBag.VehicleType = new SelectList(Enum.GetValues(typeof(VehicleType)).Cast<VehicleType>().Select(vt => new SelectListItem
+            {
+                Text = vt.ToString(),
+                Value = ((int)vt).ToString()
+            }).ToList(), "Value", "Text");
+
+            ViewBag.VehicleDoors = new SelectList(Enum.GetValues(typeof(VehicleDoors)).Cast<VehicleDoors>().Select(vd => new SelectListItem
+            {
+                Text = ((int)vd).ToString(),
+                Value = ((int)vd).ToString()
+            }).ToList(), "Value", "Text");
+
+            ViewBag.VehicleFuel = new SelectList(Enum.GetValues(typeof(VehicleFuel)).Cast<VehicleFuel>().Select(vf => new SelectListItem
+            {
+                Text = vf.ToString(),
+                Value = ((int)vf).ToString()
+            }).ToList(), "Value", "Text");
+
+            ViewBag.VehicleExchange = new SelectList(Enum.GetValues(typeof(VehicleExchange)).Cast<VehicleExchange>().Select(ve => new SelectListItem
+            {
+                Text = ve.ObterDescricao(),
+                Value = ((int)ve).ToString()
+            }).ToList(), "Value", "Text");
+
+            ViewBag.VehicleSteering = new SelectList(Enum.GetValues(typeof(VehicleSteering)).Cast<VehicleSteering>().Select(vs => new SelectListItem
+            {
+                Text = vs.ToString(),
+                Value = ((int)vs).ToString()
+            }).ToList(), "Value", "Text");
+
+            ViewBag.VehicleManufacturing = new SelectList(Enum.GetValues(typeof(VehicleManufacturing)).Cast<VehicleManufacturing>().Select(vm => new SelectListItem
+            {
+                Text = vm.ObterDescricao(),
+                Value = ((int)vm).ToString()
+            }).ToList(), "Value", "Text");
+
             return View();
         }
-        
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -76,6 +121,14 @@ namespace AccountExpress.Controllers
             }
 
             var vehicle = await _context.Vehicles.FindAsync(id);
+            ViewBag.vehicleBrandsEdit = new SelectList(Enum.GetValues(typeof(VehicleBrands)).Cast<VehicleBrands>().Select(vm => new SelectListItem
+            {
+                Text = vm.ObterDescricao(),
+                Value = ((int)vm).ToString(),
+                Selected = vm == vehicle.Brands
+            }).ToList(), "Value", "Text");
+
+
             if (vehicle == null)
             {
                 return NotFound();

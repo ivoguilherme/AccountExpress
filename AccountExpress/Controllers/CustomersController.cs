@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AccountExpress.Data;
 using AccountExpress.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace AccountExpress.Controllers
@@ -39,6 +40,7 @@ namespace AccountExpress.Controllers
         // GET: CustomerRegistration Create
         public IActionResult Create()
         {
+            
             return View();
         }
 
@@ -67,12 +69,17 @@ namespace AccountExpress.Controllers
         // GET: Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            
+
             if (id == null)
             {
                 return NotFound();
             }
 
             var customers = await _context.Customers.FindAsync(id);
+
+            //IEnumerable<Customer> customers = _context.Customers.ToArray();
+            //ViewBag.CustomersEdit = new SelectList(customers, "Id", "Descricao", rent.CustomerId);
 
             if (customers == null)
             {
@@ -89,6 +96,7 @@ namespace AccountExpress.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,DateOfBirth,CPF,RG,CNH,Phone,Adress,AdressNumber,Complement,District,City,State,CEP")] Customer customers)
         {
+
             if (id != customers.Id)
             {
                 return NotFound();

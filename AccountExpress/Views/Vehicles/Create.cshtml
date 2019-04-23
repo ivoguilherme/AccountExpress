@@ -20,11 +20,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="Brands">Marca</label>
-                            <select id="Brands" class="form-control" name="Brands">
-                                <option>wolkswagen</option>
-                                <option>chevrolet</option>
-                                <option>fiat</option>
-                            </select>
+                            <select asp-for="Brands" asp-items="@ViewBag.VehicleBrands" class="form-control"></select>
                             <small class="form-text text-muted">Selecione a marca do veículo</small>
                         </div>
                     </div>
@@ -38,82 +34,49 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="Type">Tipo</label>
-                            <select id="Type" class="form-control" name="Type">
-                                <option>Passeio</option>
-                                <option>Esportivo</option>
-                                <option>Luxo</option>
-                            </select>
+                            <select asp-for="Type" asp-items="@ViewBag.VehicleType" class="form-control"></select>
                             <small class="form-text text-muted">Selecione o tipo de veículo</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Doors">Portas</label>
-                            <select id="Doors" class="form-control" name="Doors">
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
+                            <select asp-for="Doors" asp-items="@ViewBag.VehicleDoors" class="form-control"></select>
                             <small class="form-text text-muted">Quantidade de Portas</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Color">Cor</label>
-                            <select id="Color" class="form-control" name="Color">
-                                <option>Branco</option>
-                                <option>Preto</option>
-                                <option>Prata</option>
-                                <option>Vermelho</option>
-                                <option>Azul</option>
-                                <option>Verde</option>
-                                <option>Amarelo</option>
-                                <option>Rosa</option>
-                            </select>
+                            <input type="text" id="Color" class="form-control" name="Color">
                             <small class="form-text text-muted">Selecione a Cor</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Fuel">Combustível</label>
-                            <select id="Fuel" class="form-control" name="Fuel">
-                                <option>Gasolina</option>
-                                <option>Álcool</option>
-                                <option>Flex</option>
-                            </select>
+                            <select asp-for="Fuel" asp-items="@ViewBag.VehicleFuel" class="form-control"></select>
                             <small class="form-text text-muted">Selecione o Combustível</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Exchange">Câmbio</label>
-                            <select id="Exchange" class="form-control" name="Exchange">
-                                <option>Automático</option>
-                                <option>Manual</option>
-                            </select>
+                            <select asp-for="Exchange" asp-items="@ViewBag.VehicleExchange" class="form-control"></select>
                             <small class="form-text text-muted">Selecione o Câmbio</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Steering">Direção</label>
-                            <select id="Steering" class="form-control" name="Steering">
-                                <option>Hidráulica</option>
-                                <option>Elétrica</option>
-                            </select>
+                            <select asp-for="Steering" asp-items="@ViewBag.VehicleSteering" class="form-control"></select>
                             <small class="form-text text-muted">Selecione a Direção</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Manufacturing">Fabricação</label>
-                            <select id="Manufacturing" class="form-control" name="Manufacturing">
-                                <option>2015</option>
-                                <option>2016</option>
-                                <option>2017</option>
-                                <option>2018</option>
-                                <option>2019</option>
-                            </select>
+                            <select asp-for="Manufacturing" asp-items="@ViewBag.VehicleManufacturing" class="form-control"></select>
                             <small class="form-text text-muted">Ano de Fabricação</small>
                         </div>
                     </div>

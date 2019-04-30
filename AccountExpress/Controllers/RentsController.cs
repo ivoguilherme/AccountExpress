@@ -40,6 +40,7 @@ namespace AccountExpress.Controllers
 
             var rent = await _context.Rent
                 .FirstOrDefaultAsync(m => m.Id == id);
+
             if (rent == null)
             {
                 return NotFound();

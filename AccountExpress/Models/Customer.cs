@@ -1,13 +1,13 @@
-﻿using System;
+﻿using AccountExpress.Models.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace AccountExpress.Models
 {
-    public class Customer
+    public class Customer : Entity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public DateTime DateOfBirth { get; set; }

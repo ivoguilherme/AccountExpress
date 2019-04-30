@@ -32,6 +32,7 @@ namespace AccountExpress.ViewModels
         {
             RentViewModel rentVM = new RentViewModel()
             {
+                Id = rent.Id,
                 CustomerId = rent.CustomerId,
                 Customer = rent.Customer,
                 VehicleId = rent.VehicleId,
@@ -49,6 +50,7 @@ namespace AccountExpress.ViewModels
 
         public static Rent ViewModelToModel(RentViewModel rentVM, Rent rent)
         {
+            rent.Id = rentVM.Id;
             rent.CustomerId = rentVM.CustomerId;
             rent.Customer = rentVM.Customer;
             rent.VehicleId = rentVM.VehicleId;

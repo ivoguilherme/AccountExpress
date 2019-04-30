@@ -1,11 +1,10 @@
-﻿using AccountExpress.Models.Enums;
+﻿using AccountExpress.Models.Data;
+using AccountExpress.Models.Enums;
 
 namespace AccountExpress.Models
 {
-    public class Vehicle
+    public class Vehicle : Entity
     {
-        public int Id { get; set; }
-        //public string Brands { get; set; }
         public VehicleBrands Brands { get; set; }
         public string Model { get; set; }
         public VehicleType Type { get; set; }

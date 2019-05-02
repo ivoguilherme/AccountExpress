@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AccountExpress.Data;
-using AccountExpress.Interfaces;
+﻿using System.Collections.Generic;
+using AccountExpress.Interfaces.Services;
 using AccountExpress.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace AccountExpress.Controllers
 {
     public class CustomersController : Controller
     {
-        private readonly ICustomerRepository _customerRepository;
+        private readonly ICustomerService _customerService;
 
-        public CustomersController(ICustomerRepository customerRepository)
+        public CustomersController(ICustomerService customerService)
         {
-            _customerRepository = customerRepository;
+            _customerService = customerService;
         }
 
         //GET Customers
         public ActionResult Index()
         {
-            return View(_customerRepository.GetAll());
+            return View(_customerService.Get());
         }
         /*public async Task<IActionResult> Index()
         {
@@ -34,7 +28,7 @@ namespace AccountExpress.Controllers
         // GET: Customers/Details/5
         public ActionResult Details(int id)
         {
-            return View(_customerRepository.GetById(id));
+            return View(_customerService.Get(id));
         }
         /*public async Task<IActionResult> Details(int? id)
         {
@@ -71,7 +65,7 @@ namespace AccountExpress.Controllers
         {
             try
             {
-                _customerRepository.Add(customer);
+                _customerService.Post(customer);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -95,7 +89,7 @@ namespace AccountExpress.Controllers
         // GET: Edit/5        
         public ActionResult Edit(int id)
         {
-            return View(_customerRepository.GetById(id));
+            return View(_customerService.Get(id));
         }
         /*public async Task<IActionResult> Edit(int? id)
         {
@@ -121,7 +115,7 @@ namespace AccountExpress.Controllers
         {
             try
             {
-                _customerRepository.Update(customer);
+                _customerService.Put(customer);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -165,7 +159,7 @@ namespace AccountExpress.Controllers
         // GET: Delete/5
         public ActionResult Delete(int id)
         {
-            return View(_customerRepository.GetById(id));
+            return View(_customerService.Get(id));
         }
         /*public async Task<IActionResult> Delete(int? id)
         {
@@ -191,7 +185,7 @@ namespace AccountExpress.Controllers
         {
             try
             {
-                _customerRepository.Remove(_customerRepository.GetById(id));
+                _customerService.Delete(id);
 
                 return RedirectToAction(nameof(Index));
             }

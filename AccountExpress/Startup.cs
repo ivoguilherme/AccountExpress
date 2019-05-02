@@ -15,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using AccountExpress.Models;
 using AccountExpress.Interfaces;
 using AccountExpress.Repository;
+using AccountExpress.Services;
+using AccountExpress.Interfaces.Services;
 
 namespace AccountExpress
 {
@@ -47,6 +49,12 @@ namespace AccountExpress
             services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<IRentRepository, RentRepository>();
+
+            services.AddScoped(typeof(IService<>), typeof(Service<>));
+            services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IVehicleService, VehicleService>();
+            services.AddScoped<IRentService, RentService>();
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

@@ -1,27 +1,33 @@
 ﻿using AccountExpress.Interfaces;
+using AccountExpress.Interfaces.Services;
 using AccountExpress.Models;
+using AccountExpress.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AccountExpress.Controllers
 {
     public class RentsController : Controller
     {
-        private readonly IRentRepository _rentRepository;
-        public RentsController(IRentRepository rentRepository)
+        private readonly IRentService _rentService;
+        public RentsController(IRentService rentService)
         {
-            _rentRepository = rentRepository;
+            _rentService = rentService;
         }
 
         // GET: Usuario
         public ActionResult Index()
         {
-            return View(_rentRepository.GetAll());
+            IEnumerable<Rent> rentsModel = _rentService.GetWithCustomerAndVehicles();
+            var rentsViewModel = rentsModel.Select(rent => RentMapper.ModelToViewModel(rent)).ToArray();
+            return View(rentsViewModel);
         }
 
         // GET: Usuario/Details/5
         public ActionResult Details(int id)
         {
-            return View(_rentRepository.GetById(id));
+            return View(_rentService.Get(id));
         }
 
         // GET: Usuario/Create
@@ -37,7 +43,7 @@ namespace AccountExpress.Controllers
         {
             try
             {
-                _rentRepository.Add(rent);
+                _rentService.Post(rent);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -50,7 +56,7 @@ namespace AccountExpress.Controllers
         // GET: Usuario/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(_rentRepository.GetById(id));
+            return View(_rentService.Get(id));
         }
 
         // POST: Usuario/Edit/5
@@ -60,7 +66,7 @@ namespace AccountExpress.Controllers
         {
             try
             {
-                _rentRepository.Update(rent);
+                _rentService.Put(rent);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -73,7 +79,7 @@ namespace AccountExpress.Controllers
         // GET: Usuario/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(_rentRepository.GetById(id));
+            return View(_rentService.Get(id));
         }
 
         // POST: Usuario/Delete/5
@@ -83,7 +89,7 @@ namespace AccountExpress.Controllers
         {
             try
             {
-                _rentRepository.Remove(_rentRepository.GetById(id));
+                _rentService.Delete(id);
 
                 return RedirectToAction(nameof(Index));
             }

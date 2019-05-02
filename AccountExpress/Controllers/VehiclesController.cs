@@ -1,36 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using AccountExpress.Models.Enums;
-using System;
-using System.Linq;
-using AccountExpress.Data;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 using AccountExpress.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using AccountExpress.Models.Extensions;
 using System.Collections.Generic;
-using AccountExpress.Interfaces;
+using AccountExpress.Interfaces.Services;
 
 namespace AccountExpress.Controllers
 {
     public class VehiclesController : Controller
     {
-        private readonly IVehicleRepository _vehicleRepository;
-        public VehiclesController(IVehicleRepository vehicleRepository)
+        private readonly IVehicleService _vehicleService;
+        public VehiclesController(IVehicleService vehicleService)
         {
-            _vehicleRepository = vehicleRepository;
+            _vehicleService = vehicleService;
         }
 
         // GET: Usuario
         public ActionResult Index()
         {
-            return View(_vehicleRepository.GetAll());
+            return View(_vehicleService.Get());
         }
 
         // GET: Usuario/Details/5
         public ActionResult Details(int id)
         {
-            return View(_vehicleRepository.GetById(id));
+            return View(_vehicleService.Get(id));
         }
 
         // GET: Usuario/Create
@@ -46,7 +38,7 @@ namespace AccountExpress.Controllers
         {
             try
             {
-                _vehicleRepository.Add(vehicle);
+                _vehicleService.Post(vehicle);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -59,7 +51,7 @@ namespace AccountExpress.Controllers
         // GET: Usuario/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(_vehicleRepository.GetById(id));
+            return View(_vehicleService.Get(id));
         }
 
         // POST: Usuario/Edit/5
@@ -69,7 +61,7 @@ namespace AccountExpress.Controllers
         {
             try
             {
-                _vehicleRepository.Update(vehicle);
+                _vehicleService.Put(vehicle);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -82,7 +74,7 @@ namespace AccountExpress.Controllers
         // GET: Usuario/Delete/5
         public ActionResult Delete(int id)
         {
-            return View(_vehicleRepository.GetById(id));
+            return View(_vehicleService.Get(id));
         }
 
         // POST: Usuario/Delete/5
@@ -92,7 +84,7 @@ namespace AccountExpress.Controllers
         {
             try
             {
-                _vehicleRepository.Remove(_vehicleRepository.GetById(id));
+                _vehicleService.Delete(id);
 
                 return RedirectToAction(nameof(Index));
             }

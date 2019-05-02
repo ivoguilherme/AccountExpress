@@ -1,19 +1,100 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using AccountExpress.Data;
+﻿using AccountExpress.Interfaces;
 using AccountExpress.Models;
-using AccountExpress.Models.Enums;
-using AccountExpress.Models.Extensions;
-using AccountExpress.ViewModels;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AccountExpress.Controllers
 {
     public class RentsController : Controller
+    {
+        private readonly IRentRepository _rentRepository;
+        public RentsController(IRentRepository rentRepository)
+        {
+            _rentRepository = rentRepository;
+        }
+
+        // GET: Usuario
+        public ActionResult Index()
+        {
+            return View(_rentRepository.GetAll());
+        }
+
+        // GET: Usuario/Details/5
+        public ActionResult Details(int id)
+        {
+            return View(_rentRepository.GetById(id));
+        }
+
+        // GET: Usuario/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Usuario/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Rent rent)
+        {
+            try
+            {
+                _rentRepository.Add(rent);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Usuario/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View(_rentRepository.GetById(id));
+        }
+
+        // POST: Usuario/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, Rent rent)
+        {
+            try
+            {
+                _rentRepository.Update(rent);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Usuario/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View(_rentRepository.GetById(id));
+        }
+
+        // POST: Usuario/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, Rent rent)
+        {
+            try
+            {
+                _rentRepository.Remove(_rentRepository.GetById(id));
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
+
+    /*public class RentsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
@@ -170,5 +251,5 @@ namespace AccountExpress.Controllers
         {
             return _context.Rent.Any(e => e.Id == id);
         }
-    }
+    }*/
 }

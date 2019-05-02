@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AccountExpress.Data;
+using AccountExpress.Interfaces;
 using AccountExpress.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,15 +13,30 @@ namespace AccountExpress.Controllers
 {
     public class CustomersController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICustomerRepository _customerRepository;
 
-        public CustomersController(ApplicationDbContext context)
+        public CustomersController(ICustomerRepository customerRepository)
         {
-            _context = context;
+            _customerRepository = customerRepository;
         }
-        
-        // GET: Details/5
-        public async Task<IActionResult> Details(int? id)
+
+        //GET Customers
+        public ActionResult Index()
+        {
+            return View(_customerRepository.GetAll());
+        }
+        /*public async Task<IActionResult> Index()
+        {
+            return View(await _context.Customers.ToListAsync());
+        }*/
+
+
+        // GET: Customers/Details/5
+        public ActionResult Details(int id)
+        {
+            return View(_customerRepository.GetById(id));
+        }
+        /*public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -35,27 +51,36 @@ namespace AccountExpress.Controllers
             }
 
             return View(customers);
-        }
+        }*/
 
-        // GET: CustomerRegistration Create
-        public IActionResult Create()
+
+        // GET: Customers/Create
+        public ActionResult Create()
         {
-            
             return View();
         }
-
-        //GET CustomerManager Index
-        public async Task<IActionResult> Index()
+        /*public IActionResult Create()
         {
-            return View(await _context.Customers.ToListAsync());
-        }
+            return View();
+        }*/
 
-        // POST: Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Customers/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Email,DateOfBirth,CPF,RG,CNH,Phone,Adress,AdressNumber,Complement,District,City,State,CEP")] Customer customers)
+        public ActionResult Create(Customer customer)
+        {
+            try
+            {
+                _customerRepository.Add(customer);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        /*public async Task<IActionResult> Create([Bind("Id,Name,Email,DateOfBirth,CPF,RG,CNH,Phone,Adress,AdressNumber,Complement,District,City,State,CEP")] Customer customers)
         {
             if (ModelState.IsValid)
             {
@@ -64,13 +89,16 @@ namespace AccountExpress.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(customers);
-        }
+        }*/
 
-        // GET: Edit/5
-        public async Task<IActionResult> Edit(int? id)
+
+        // GET: Edit/5        
+        public ActionResult Edit(int id)
         {
-            
-
+            return View(_customerRepository.GetById(id));
+        }
+        /*public async Task<IActionResult> Edit(int? id)
+        {
             if (id == null)
             {
                 return NotFound();
@@ -78,25 +106,33 @@ namespace AccountExpress.Controllers
 
             var customers = await _context.Customers.FindAsync(id);
 
-            //IEnumerable<Customer> customers = _context.Customers.ToArray();
-            //ViewBag.CustomersEdit = new SelectList(customers, "Id", "Descricao", rent.CustomerId);
-
             if (customers == null)
             {
                 return NotFound();
             }
 
             return View(customers);
-        }
+        }*/
 
         // POST: Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,DateOfBirth,CPF,RG,CNH,Phone,Adress,AdressNumber,Complement,District,City,State,CEP")] Customer customers)
+        public ActionResult Edit(int id, Customer customer)
         {
+            try
+            {
+                _customerRepository.Update(customer);
 
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        /*public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,DateOfBirth,CPF,RG,CNH,Phone,Adress,AdressNumber,Complement,District,City,State,CEP")] Customer customers)
+        {
             if (id != customers.Id)
             {
                 return NotFound();
@@ -123,10 +159,15 @@ namespace AccountExpress.Controllers
                 return RedirectToAction(nameof(Index));
             }
             return View(customers);
-        }
+        }*/
+
 
         // GET: Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public ActionResult Delete(int id)
+        {
+            return View(_customerRepository.GetById(id));
+        }
+        /*public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -141,12 +182,25 @@ namespace AccountExpress.Controllers
             }
 
             return View(customers);
-        }
+        }*/
 
         // POST: Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public ActionResult Delete(int id, Customer customer)
+        {
+            try
+            {
+                _customerRepository.Remove(_customerRepository.GetById(id));
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        /*public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var customers = await _context.Customers.FindAsync(id);
             _context.Customers.Remove(customers);
@@ -157,6 +211,6 @@ namespace AccountExpress.Controllers
         private bool CustomersExists(int id)
         {
             return _context.Customers.Any(e => e.Id == id);
-        }
+        }*/
     }
 }

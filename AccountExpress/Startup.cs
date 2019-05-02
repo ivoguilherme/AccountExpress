@@ -13,6 +13,8 @@ using AccountExpress.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using AccountExpress.Models;
+using AccountExpress.Interfaces;
+using AccountExpress.Repository;
 
 namespace AccountExpress
 {
@@ -40,6 +42,11 @@ namespace AccountExpress
                     builder.MigrationsAssembly("AccountExpress")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IRentRepository, RentRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

@@ -9,10 +9,101 @@ using AccountExpress.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using AccountExpress.Models.Extensions;
 using System.Collections.Generic;
+using AccountExpress.Interfaces;
 
 namespace AccountExpress.Controllers
 {
     public class VehiclesController : Controller
+    {
+        private readonly IVehicleRepository _vehicleRepository;
+        public VehiclesController(IVehicleRepository vehicleRepository)
+        {
+            _vehicleRepository = vehicleRepository;
+        }
+
+        // GET: Usuario
+        public ActionResult Index()
+        {
+            return View(_vehicleRepository.GetAll());
+        }
+
+        // GET: Usuario/Details/5
+        public ActionResult Details(int id)
+        {
+            return View(_vehicleRepository.GetById(id));
+        }
+
+        // GET: Usuario/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Usuario/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Vehicle vehicle)
+        {
+            try
+            {
+                _vehicleRepository.Add(vehicle);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Usuario/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View(_vehicleRepository.GetById(id));
+        }
+
+        // POST: Usuario/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, Vehicle vehicle)
+        {
+            try
+            {
+                _vehicleRepository.Update(vehicle);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Usuario/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View(_vehicleRepository.GetById(id));
+        }
+
+        // POST: Usuario/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, Rent rent)
+        {
+            try
+            {
+                _vehicleRepository.Remove(_vehicleRepository.GetById(id));
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+    }
+
+    /*public class VehiclesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
@@ -248,5 +339,5 @@ namespace AccountExpress.Controllers
         {
             return _context.Vehicles.Any(e => e.Id == id);
         }
-    }
+    }*/
 }

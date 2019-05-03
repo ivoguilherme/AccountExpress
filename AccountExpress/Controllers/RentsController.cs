@@ -81,8 +81,16 @@ namespace AccountExpress.Controllers
         // GET: Usuario/Edit/5
         public ActionResult Edit(int id)
         {
+            var customer = _customerService.Get(id);
+            var vehicle = _vehicleService.Get(id);
+            var rent = _rentService.Get(id);
+
             IEnumerable<Customer> customers = _customerService.Get();
-            ViewBag.Customers = customers.Select(c => new SelectListItem() { Text = c.Name, Value = c.Id.ToString() }).ToList();
+            ViewBag.Customers = customers.Select(c => new SelectListItem()
+            {
+                Text = c.Name,
+                Value = c.Id.ToString()
+            }).ToList() ;
 
             IEnumerable<Vehicle> vehicles = _vehicleService.Get();
             ViewBag.Vehicles = vehicles.Select(v => new SelectListItem() { Text = string.Concat(v.Brands, " - ", v.Model), Value = v.Id.ToString() }).ToList();
@@ -90,9 +98,12 @@ namespace AccountExpress.Controllers
             ViewBag.RentType = new SelectList(Enum.GetValues(typeof(RentType)).Cast<RentType>().Select(v => new SelectListItem
             {
                 Text = v.ObterDescricao(),
-                Value = ((int)v).ToString()
+                Value = ((int)v).ToString(),
+                Selected = v == rent.TypeOfRent
             }).ToList(), "Value", "Text");
+
             return View();
+
         }
 
         // POST: Usuario/Edit/5

@@ -17,32 +17,18 @@
         <div class="content-box">
             <form asp-action="Create">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Cliente</label>
                             <select asp-for="CustomerId" asp-items="@ViewBag.Customers" class="form-control"></select>
                             <small class="form-text text-muted">Selecione o cliente</small>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="">Veículo</label>
                             <select asp-for="VehicleId" asp-items="@ViewBag.Vehicles" class="form-control"></select>
                             <small class="form-text text-muted">Selecione o veículo</small>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="">Diária</label>
-                            <input type="text" class="form-control" id="" name="">
-                            <small class="form-text text-muted">Informe o valor da diária</small>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="form-group">
-                            <label for="">Taxa por Atraso</label>
-                            <input type="text" class="form-control" id="" name="">
-                            <small class="form-text text-muted">Informe a taxa</small>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -59,18 +45,25 @@
                             <small class="form-text text-muted">Informe a data de devolução</small>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="CPF">Tipo de Aluguel</label>
                             <select asp-for="TypeOfRent" asp-items="@ViewBag.RentType" asp-name class="form-control"></select>
                             <small class="form-text text-muted">Informe o tipo de aluguel</small>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
-                            <label for="">Ponto de Devolução</label>
-                            <input type="text" class="form-control" id="" name="">
-                            <small class="form-text text-muted">Informe o local de devolução</small>
+                            <label for="Daily">Diária</label>
+                            <input type="number" class="form-control" id="Daily" name="Daily">
+                            <small class="form-text text-muted">Informe o valor da diária</small>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label for="DelayRate">Taxa por Atraso</label>
+                            <input type="number" class="form-control" id="DelayRate" name="DelayRate">
+                            <small class="form-text text-muted">Informe a taxa</small>
                         </div>
                     </div>
                     <div class="col-md-12">

@@ -9,3 +9,4 @@ function OpenModalEditCustomer(id) {
     });
 }
 
+$(".maskMoney").maskMoney({ prefix: 'R$ ', allowNegative: true, thousands: '.', decimal: ',', affixesStay: false });

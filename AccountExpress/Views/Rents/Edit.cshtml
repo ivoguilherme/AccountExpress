@@ -10,7 +10,7 @@
         <div class="title-wrapper">
             <div class="row">
                 <div class="col-md-12">
-                    <h4>Alugar Carro</h4>
+                    <h4>Editar Aluguel</h4>
                 </div>
             </div>
         </div>
@@ -20,26 +20,14 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Cliente</label>
-                            <select class="form-control" id="" name="">
-                                <option>Cliente 1</option>
-                                <option>Cliente 2</option>
-                                <option>Cliente 3</option>
-                                <option>Cliente 4</option>
-                                <option>Cliente 5</option>
-                            </select>
+                            <select asp-for="CustomerId" asp-items="@ViewBag.Customers" class="form-control"></select>
                             <small class="form-text text-muted">Selecione o cliente</small>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Veículo</label>
-                            <select class="form-control" id="" name="">
-                                <option>Veículo 1</option>
-                                <option>Veículo 2</option>
-                                <option>Veículo 3</option>
-                                <option>Veículo 4</option>
-                                <option>Veículo 5</option>
-                            </select>
+                            <select asp-for="VehicleId" asp-items="@ViewBag.Vehicles" class="form-control"></select>
                             <small class="form-text text-muted">Selecione o veículo</small>
                         </div>
                     </div>
@@ -74,11 +62,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="CPF">Tipo de Aluguel</label>
-                            <select class="form-control" id="CPF" name="CPF">
-                                <option>Normal</option>
-                                <option>Promocional (20%)</option>
-                                <option>Novo Cliente (10%)</option>
-                            </select>
+                            <select asp-for="TypeOfRent" asp-items="@ViewBag.RentType" asp-name class="form-control"></select>
                             <small class="form-text text-muted">Informe o tipo de aluguel</small>
                         </div>
                     </div>

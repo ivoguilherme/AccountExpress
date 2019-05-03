@@ -9,7 +9,7 @@
         <div class="title-wrapper">
             <div class="row">
                 <div class="col-md-6">
-                    <h4>Informações do Cliente</h4>
+                    <h4>Informações do Aluguel</h4>
                 </div>
                 <div class="col-md-6">
                     <div class="box-btn">
@@ -28,13 +28,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="IdCustomers">Cliente</label>
-                        <p>@Html.DisplayFor(model => model.CustomerId)</p>
+                        <p>@ViewBag.Customer</p>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="IdVehicles">Veículo</label>
-                        <p>@Html.DisplayFor(model => model.VehicleId)</p>
+                        <p>@ViewBag.Vehicle</p>
                     </div>
                 </div>
                 <div class="col-md-3">

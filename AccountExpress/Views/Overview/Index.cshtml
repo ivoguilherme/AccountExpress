@@ -4,21 +4,53 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<div class="col-md-3">
+<div class="col-md-12">
+    <div class="title-wrapper">
+        <h4>Visão Geral</h4>
+    </div>
+</div>
+<div class="col-md-4">
     <div class="mini-box">
         <div class="title-box">
-            <a href="#"><span>Business Manager</span><i class="fas fa-cog"></i></a>
+            <a asp-controller="Vehicles" asp-action="Index"><span><b>Veículos</b></span><i class="fas fa-cog"></i></a>
 
         </div>
         <div class="content-box">
             <p>Cadastrados<span class="badge">5</span></p>
+            <hr />
+            <p>Disponíveis<span class="badge">2</span></p>
+            <hr />
+            <p>Indisponíveis<span class="badge">3</span></p>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="mini-box">
+        <div class="title-box">
+            <a asp-controller="Customers" asp-action="Index"><span><b>Clientes</b></span><i class="fas fa-cog"></i></a>
+
+        </div>
+        <div class="content-box">
+            <p>Cadastrados<span class="badge">5</span></p>
+            <hr />
             <p>Ativos<span class="badge">2</span></p>
+            <hr />
             <p>Inativos<span class="badge">3</span></p>
         </div>
     </div>
 </div>
-<div class="col-md-3">Teste</div>
-<div class="col-md-3">Teste</div>
-<div class="col-md-3">Teste</div>
+<div class="col-md-4">
+    <div class="mini-box">
+        <div class="title-box">
+            <a asp-controller="Rents" asp-action="Index"><span><b>Aluguéis</b></span><i class="fas fa-cog"></i></a>
 
+        </div>
+        <div class="content-box">
+            <p>Realizados<span class="badge">5</span></p>
+            <hr />
+            <p>Cancelados<span class="badge">2</span></p>
+            <hr />
+            <p>Em andamento<span class="badge">3</span></p>
+        </div>
+    </div>
+</div>

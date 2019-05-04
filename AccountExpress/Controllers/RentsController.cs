@@ -99,7 +99,12 @@ namespace AccountExpress.Controllers
                 Selected = rent.VehicleId == v.Id
             }).ToList();
 
-            ViewBag.RentType = new SelectList(Enum.GetValues(typeof(RentType)).Cast<RentType>().Select(v => new SelectListItem
+
+            ViewBag.RentDaily = rent.Daily;
+            ViewBag.RentDelayRate = rent.DelayRate;
+
+            ViewBag.RentType = new SelectList(
+                Enum.GetValues(typeof(RentType)).Cast<RentType>().Select(v => new SelectListItem
             {
                 Text = v.ObterDescricao(),
                 Value = ((int)v).ToString(),

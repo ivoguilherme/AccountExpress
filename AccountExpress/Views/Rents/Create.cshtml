@@ -47,22 +47,22 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="CPF">Tipo de Aluguel</label>
-                            <select asp-for="TypeOfRent" asp-items="@ViewBag.RentType" asp-name class="form-control"></select>
+                            <label for="TypeOfRent">Tipo de Aluguel</label>
+                            <select id="TypeOfRent" name="TypeOfRent" asp-for="TypeOfRent" asp-items="@ViewBag.RentType" class="form-control"></select>
                             <small class="form-text text-muted">Informe o tipo de aluguel</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Daily">Diária</label>
-                            <input type="number" class="form-control maskMoney" id="Daily" name="Daily">
+                            <input type="text" class="form-control maskMoney" id="Daily" name="Daily">
                             <small class="form-text text-muted">Informe o valor da diária</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="DelayRate">Taxa por Atraso</label>
-                            <input type="number" class="form-control maskMoney" id="DelayRate" name="DelayRate">
+                            <input type="text" class="form-control maskMoney" id="DelayRate" name="DelayRate">
                             <small class="form-text text-muted">Informe a taxa</small>
                         </div>
                     </div>

@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="content-box">
-            <form asp-action="Create">
+            <form asp-action="Edit">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -33,36 +33,37 @@
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="">Data da Retirada</label>
-                            <input type="date" class="form-control" id="" name="">
+                            <label for="PickupDate">Data da Retirada</label>
+                            <input asp-for="PickupDate" type="date" name="PickupDate" />
+                            @*<input type="date" class="form-control" id="PickupDate" name="PickupDate">*@
                             <small class="form-text text-muted">Informe a data de retirada</small>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="">Data da Devolução</label>
-                            <input type="date" class="form-control" id="" name="">
+                            <label for="ReturnDate">Data da Devolução</label>
+                            <input type="date" class="form-control" id="ReturnDate" name="ReturnDate">
                             <small class="form-text text-muted">Informe a data de devolução</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label for="CPF">Tipo de Aluguel</label>
-                            <select asp-for="TypeOfRent" asp-items="@ViewBag.RentType" asp-name class="form-control"></select>
+                            <label for="TypeOfRent">Tipo de Aluguel</label>
+                            <select id="TypeOfRent" name="TypeOfRent" asp-for="TypeOfRent" asp-items="@ViewBag.RentType" class="form-control"></select>
                             <small class="form-text text-muted">Informe o tipo de aluguel</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Daily">Diária</label>
-                            <input type="number" class="form-control maskMoney" id="Daily" name="Daily">
+                            <input type="text" class="form-control maskMoney" id="Daily" name="Daily" value="@ViewBag.RentDaily">
                             <small class="form-text text-muted">Informe o valor da diária</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="DelayRate">Taxa por Atraso</label>
-                            <input type="number" class="form-control maskMoney" id="DelayRate" name="DelayRate">
+                            <input type="text" class="form-control maskMoney" id="DelayRate" name="DelayRate" value="@ViewBag.RentDelayRate">
                             <small class="form-text text-muted">Informe a taxa</small>
                         </div>
                     </div>

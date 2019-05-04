@@ -84,34 +84,23 @@ namespace AccountExpress.Controllers
             var rent = _rentService.Get(id);
 
             IEnumerable<Customer> customers = _customerService.Get();
-            ViewBag.Customers = customers.Select(c => new SelectListItem()
-            {
-                Text = c.Name,
-                Value = c.Id.ToString(),
-                Selected = rent.CustomerId == c.Id
-            }).ToList();
+            ViewBag.Customers = new SelectList(customers, "Id", "Name", rent.CustomerId);
 
             IEnumerable<Vehicle> vehicles = _vehicleService.Get();
-            ViewBag.Vehicles = vehicles.Select(v => new SelectListItem()
-            {
-                Text = string.Concat(v.Brands, " - ", v.Model),
-                Value = v.Id.ToString(),
-                Selected = rent.VehicleId == v.Id
-            }).ToList();
+            ViewBag.Vehicles = new SelectList(vehicles, "Id", "Model", rent.VehicleId);
 
+            //ViewBag.RentTypeEdit = new SelectList(Enum.GetValues(typeof(RentType)).Cast<RentType>().Select(v => new SelectListItem
+            //{
+            //    Text = v.ObterDescricao(),
+            //    Value = ((int)v).ToString(),
+            //    Selected = rent.TypeOfRent == v
+            //}).ToList(), "Value", "Text");
 
-            ViewBag.RentDaily = rent.Daily;
-            ViewBag.RentDelayRate = rent.DelayRate;
+            ViewBag.RentType = new SelectList(Enum.GetValues(typeof(RentType)).Cast<RentType>()
+                .Select(v => new { Id = v, Text = v.ObterDescricao() })
+                .ToList(), "Id", "Text", rent.TypeOfRent);
 
-            ViewBag.RentType = new SelectList(
-                Enum.GetValues(typeof(RentType)).Cast<RentType>().Select(v => new SelectListItem
-            {
-                Text = v.ObterDescricao(),
-                Value = ((int)v).ToString(),
-                Selected = rent.TypeOfRent == v
-            }).ToList(), "Value", "Text");
-
-            return View();
+            return View(rent);
 
         }
 

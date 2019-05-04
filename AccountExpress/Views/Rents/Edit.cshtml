@@ -34,14 +34,14 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="">Data da Retirada</label>
-                            <input type="date" class="form-control" id="" name="">
+                            <input class="form-control" asp-for="PickupDate">
                             <small class="form-text text-muted">Informe a data de retirada</small>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="">Data da Devolução</label>
-                            <input type="date" class="form-control" id="" name="">
+                            <input class="form-control" asp-for="ReturnDate">
                             <small class="form-text text-muted">Informe a data de devolução</small>
                         </div>
                     </div>
@@ -55,14 +55,14 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="Daily">Diária</label>
-                            <input type="number" class="form-control maskMoney" id="Daily" name="Daily">
+                            <input type="text" class="form-control maskMoney" asp-for="Daily">
                             <small class="form-text text-muted">Informe o valor da diária</small>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
                             <label for="DelayRate">Taxa por Atraso</label>
-                            <input type="number" class="form-control maskMoney" id="DelayRate" name="DelayRate">
+                            <input type="text" class="form-control maskMoney" asp-for="DelayRate">
                             <small class="form-text text-muted">Informe a taxa</small>
                         </div>
                     </div>

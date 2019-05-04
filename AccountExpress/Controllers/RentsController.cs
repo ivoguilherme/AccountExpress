@@ -100,7 +100,7 @@ namespace AccountExpress.Controllers
                 .Select(v => new { Id = v, Text = v.ObterDescricao() })
                 .ToList(), "Id", "Text", rent.TypeOfRent);
 
-            return View();
+            return View(rent);
 
         }
 

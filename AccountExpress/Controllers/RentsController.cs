@@ -24,7 +24,7 @@ namespace AccountExpress.Controllers
             _customerService = customerService;
         }
 
-        // GET: Usuario
+        // GET: Rents
         public ActionResult Index()
         {
             IEnumerable<Rent> rentsModel = _rentService.GetWithCustomerAndVehicles();
@@ -32,7 +32,7 @@ namespace AccountExpress.Controllers
             return View(rentsViewModel);
         }
 
-        // GET: Usuario/Details/5
+        // GET: Rents/Details/5
         public ActionResult Details(int id)
         {
             ViewBag.Customer = _customerService.Get().FirstOrDefault(c => c.Id == _rentService.Get(id).CustomerId).Name;
@@ -41,14 +41,14 @@ namespace AccountExpress.Controllers
             return View(_rentService.Get(id));
         }
 
-        // GET: Usuario/Create
+        // GET: Rents/Create
         public ActionResult Create()
         {
             IEnumerable<Customer> customers = _customerService.Get();
             ViewBag.Customers = customers.Select(c => new SelectListItem() { Text = c.Name, Value = c.Id.ToString() }).ToList();
 
             IEnumerable<Vehicle> vehicles = _vehicleService.Get();
-            ViewBag.Vehicles = vehicles.Select(v => new SelectListItem() { Text = string.Concat(v.Brands, " - ", v.Model), Value = v.Id.ToString() }).ToList();
+            ViewBag.Vehicles = vehicles.Where(v => v.isRented == false).Select(v => new SelectListItem() { Text = string.Concat(v.Brands, " - ", v.Model), Value = v.Id.ToString() }).ToList();
 
             ViewBag.RentType = new SelectList(
                 Enum.GetValues(typeof(RentType)).Cast<RentType>().Select(v => new SelectListItem
@@ -61,11 +61,13 @@ namespace AccountExpress.Controllers
             return View();
         }
 
-        // POST: Usuario/Create
+        // POST: Rents/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Rent rent)
         {
+            rent.Vehicle = _vehicleService.Get(rent.VehicleId);
+
             try
             {
                 _rentService.Post(rent);
@@ -78,23 +80,20 @@ namespace AccountExpress.Controllers
             }
         }
 
-        // GET: Usuario/Edit/5
+        // GET: Rent/Edit/5
         public ActionResult Edit(int id)
         {
             var rent = _rentService.Get(id);
 
+            var vehicle = _vehicleService.Get(rent.VehicleId);
+
+            vehicle.isRented = false;
+
             IEnumerable<Customer> customers = _customerService.Get();
             ViewBag.Customers = new SelectList(customers, "Id", "Name", rent.CustomerId);
 
-            IEnumerable<Vehicle> vehicles = _vehicleService.Get();
+            IEnumerable<Vehicle> vehicles = _vehicleService.Get().Where(v => v.isRented == false);
             ViewBag.Vehicles = new SelectList(vehicles, "Id", "Model", rent.VehicleId);
-
-            //ViewBag.RentTypeEdit = new SelectList(Enum.GetValues(typeof(RentType)).Cast<RentType>().Select(v => new SelectListItem
-            //{
-            //    Text = v.ObterDescricao(),
-            //    Value = ((int)v).ToString(),
-            //    Selected = rent.TypeOfRent == v
-            //}).ToList(), "Value", "Text");
 
             ViewBag.RentType = new SelectList(Enum.GetValues(typeof(RentType)).Cast<RentType>()
                 .Select(v => new { Id = v, Text = v.ObterDescricao() })
@@ -104,7 +103,7 @@ namespace AccountExpress.Controllers
 
         }
 
-        // POST: Usuario/Edit/5
+        // POST: Rent/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Rent rent)
@@ -121,13 +120,13 @@ namespace AccountExpress.Controllers
             }
         }
 
-        // GET: Usuario/Delete/5
+        // GET: Rent/Delete/5
         public ActionResult Delete(int id)
         {
             return View(_rentService.Get(id));
         }
 
-        // POST: Usuario/Delete/5
+        // POST: Rent/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, Rent rent)

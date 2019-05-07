@@ -18,6 +18,7 @@ namespace AccountExpress.Models
         public string Plate { get; set; }
         public string Chassis { get; set; }
         public string Observations { get; set; }
-               
+        public bool isRented { get; set; }
+
     }
 }

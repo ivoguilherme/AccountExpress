@@ -16,7 +16,7 @@ namespace AccountExpress.Services
             _repository = repository;
         }
 
-        public void Delete(int id)
+        public virtual void Delete(int id)
         {
             _repository.Remove(_repository.GetById(id));
         }
@@ -31,12 +31,12 @@ namespace AccountExpress.Services
             return _repository.GetAll();
         }
 
-        public TEntity Post(TEntity obj)
+        public virtual TEntity Post(TEntity obj)
         {
             return _repository.Add(obj);
         }
 
-        public TEntity Put(TEntity obj)
+        public virtual TEntity Put(TEntity obj)
         {
             return _repository.Update(obj);
         }

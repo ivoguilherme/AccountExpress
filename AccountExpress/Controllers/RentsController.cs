@@ -66,8 +66,6 @@ namespace AccountExpress.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Rent rent)
         {
-            rent.Vehicle = _vehicleService.Get(rent.VehicleId);
-
             try
             {
                 _rentService.Post(rent);

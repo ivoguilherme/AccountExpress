@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AccountExpress.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class inital : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -91,7 +91,8 @@ namespace AccountExpress.Migrations
                     Mileage = table.Column<string>(nullable: true),
                     Plate = table.Column<string>(nullable: true),
                     Chassis = table.Column<string>(nullable: true),
-                    Observations = table.Column<string>(nullable: true)
+                    Observations = table.Column<string>(nullable: true),
+                    isRented = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -214,9 +215,9 @@ namespace AccountExpress.Migrations
                     VehicleId = table.Column<int>(nullable: false),
                     PickupDate = table.Column<DateTime>(nullable: false),
                     ReturnDate = table.Column<DateTime>(nullable: false),
-                    TypeOfRent = table.Column<string>(nullable: true),
+                    TypeOfRent = table.Column<int>(nullable: false),
                     Daily = table.Column<double>(nullable: false),
-                    DelayRate = table.Column<double>(nullable: false)
+                    Discount = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {

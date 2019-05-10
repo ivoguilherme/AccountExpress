@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccountExpress.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190423164732_alteradoTipoColunaTypeOfRent")]
-    partial class alteradoTipoColunaTypeOfRent
+    [Migration("20190510140619_inital")]
+    partial class inital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -66,7 +66,7 @@ namespace AccountExpress.Migrations
 
                     b.Property<double>("Daily");
 
-                    b.Property<double>("DelayRate");
+                    b.Property<double>("Discount");
 
                     b.Property<DateTime>("PickupDate");
 
@@ -115,6 +115,8 @@ namespace AccountExpress.Migrations
                     b.Property<int>("Steering");
 
                     b.Property<int>("Type");
+
+                    b.Property<bool>("isRented");
 
                     b.HasKey("Id");
 

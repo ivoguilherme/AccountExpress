@@ -32,12 +32,10 @@ namespace AccountExpress.Services
 
         public override Rent Post(Rent rent)
         {
-            rent.Vehicle.isRented = true;
-
-            var typeOfRent = rent.TypeOfRent.ToString();
+            Vehicle vehicle = _vehicleRepository.GetById(rent.VehicleId);
+            vehicle.isRented = true;
 
             _rentRepository.Add(rent);
-
             return rent;
         }
 

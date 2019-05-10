@@ -74,8 +74,9 @@ namespace AccountExpress.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch(Exception e)
             {
+                var teste = e.Message;
                 return View();
             }
         }
@@ -84,10 +85,6 @@ namespace AccountExpress.Controllers
         public ActionResult Edit(int id)
         {
             var rent = _rentService.Get(id);
-
-            var vehicle = _vehicleService.Get(rent.VehicleId);
-
-            vehicle.isRented = false;
 
             IEnumerable<Customer> customers = _customerService.Get();
             ViewBag.Customers = new SelectList(customers, "Id", "Name", rent.CustomerId);
@@ -114,9 +111,9 @@ namespace AccountExpress.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                return View(ex.Message);
             }
         }
 
@@ -130,6 +127,29 @@ namespace AccountExpress.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, Rent rent)
+        {
+            try
+            {
+                _rentService.Delete(id);
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Finalize
+        public ActionResult Finalize(int id)
+        {
+            return View(_rentService.Get(id));
+        }
+
+        // POST: Finalize
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Finalize(int id, Rent rent)
         {
             try
             {

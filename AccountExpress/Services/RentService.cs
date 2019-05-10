@@ -1,10 +1,8 @@
 ﻿using AccountExpress.Interfaces;
 using AccountExpress.Interfaces.Services;
 using AccountExpress.Models;
-using System;
+using AccountExpress.Models.Calculations;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AccountExpress.Services
 {
@@ -12,6 +10,8 @@ namespace AccountExpress.Services
     {
         private readonly IRentRepository _rentRepository;
         private readonly IVehicleRepository _vehicleRepository;
+        private CarRentNormal normal = new CarRentNormal();
+
         public RentService(IRepository<Rent> repository, IRentRepository rentRepository, IVehicleRepository vehicleRepository) : base(repository)
         {
             _rentRepository = rentRepository;
@@ -23,9 +23,18 @@ namespace AccountExpress.Services
             return _rentRepository.GetWithCustomerAndVehicles();
         }
 
+        public override Rent Get(int id)
+        {
+            var rent = _rentRepository.GetById(id);
+
+            return rent;
+        }
+
         public override Rent Post(Rent rent)
         {
             rent.Vehicle.isRented = true;
+
+            var typeOfRent = rent.TypeOfRent.ToString();
 
             _rentRepository.Add(rent);
 
@@ -43,8 +52,18 @@ namespace AccountExpress.Services
 
         public override Rent Put(Rent rent)
         {
-            Vehicle vehicle = _vehicleRepository.GetById(rent.VehicleId);
-            vehicle.isRented = false;
+            Rent rentClone = _rentRepository.GetById(rent.Id);
+
+            if (rent.VehicleId != rentClone.VehicleId)
+            {
+                Vehicle vehicleNew = _vehicleRepository.GetById(rent.VehicleId);
+                Vehicle vehicleOld = _vehicleRepository.GetById(rentClone.VehicleId);
+
+                vehicleNew.isRented = true;
+                vehicleOld.isRented = false;
+                _vehicleRepository.Update(vehicleNew);
+                _vehicleRepository.Update(vehicleOld);
+            }
 
             return _rentRepository.Update(rent);
         }

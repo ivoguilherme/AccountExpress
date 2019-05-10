@@ -20,7 +20,7 @@ namespace AccountExpress.ViewModels
         public string TypeOfRent { get; set; }
         public RentType TypeOfRentEnum { get; set; } // criei esse cara so para quando viewmodel virar model
         public double Daily { get; set; }
-        public double DelayRate { get; set; }
+        public double Discount { get; set; }
 
 
     }
@@ -42,7 +42,7 @@ namespace AccountExpress.ViewModels
                 TypeOfRent = rent.TypeOfRent.ObterDescricao(),
                 TypeOfRentEnum = rent.TypeOfRent,
                 Daily = rent.Daily,
-                DelayRate = rent.DelayRate
+                Discount = rent.Discount
             };
 
             return rentVM;
@@ -59,7 +59,7 @@ namespace AccountExpress.ViewModels
             rent.ReturnDate = rentVM.ReturnDate;
             rent.TypeOfRent = rentVM.TypeOfRentEnum;
             rent.Daily = rentVM.Daily;
-            rent.DelayRate = rentVM.DelayRate;
+            rent.Discount = rentVM.Discount;
 
             return rent;
         }

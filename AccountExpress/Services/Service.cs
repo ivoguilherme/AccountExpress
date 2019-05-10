@@ -21,7 +21,7 @@ namespace AccountExpress.Services
             _repository.Remove(_repository.GetById(id));
         }
 
-        public TEntity Get(int id)
+        public virtual TEntity Get(int id)
         {
             return _repository.GetById(id);
         }

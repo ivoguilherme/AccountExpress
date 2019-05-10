@@ -1,5 +1,6 @@
 ﻿using AccountExpress.Data;
 using AccountExpress.Interfaces;
+using AccountExpress.Models.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace AccountExpress.Repository
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : Entity
     {
         private readonly ApplicationDbContext _dbContext;
 
@@ -35,7 +36,7 @@ namespace AccountExpress.Repository
 
         public TEntity GetById(int Id)
         {
-            return _dbContext.Set<TEntity>().Find(Id);
+            return _dbContext.Set<TEntity>().AsNoTracking().FirstOrDefault(obj => obj.Id == Id);
         }
 
         public void Remove(TEntity obj)

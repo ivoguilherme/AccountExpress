@@ -10,9 +10,9 @@ namespace AccountExpress.Models.Enums
     public enum RentType
     {
         Normal,
-        [Description("Promocional (10%)")]
+        [Description("Promocional (5% desc)")]
         Promocional,
-        [Description("Cliente Novo (15%)")]
+        [Description("Primeiro Aluguel (10% desc)")]
         ClienteNovo
     }
 }

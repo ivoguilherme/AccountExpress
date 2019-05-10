@@ -17,6 +17,6 @@ namespace AccountExpress.Models
         public DateTime ReturnDate { get; set; }
         public RentType TypeOfRent { get; set; }
         public double Daily { get; set; }
-        public double DelayRate { get; set; }
+        public double Discount { get; set; }
     }
 }

@@ -17,19 +17,6 @@ namespace AccountExpress.Models.ViewModels
         public string Exchange { get; set; }
         public string Steering { get; set; }
         public string Manufacturing { get; set; }
-
         public List<SelectListItem> ListBrands { get; set; }
-
-        //public VehicleViewModel()
-        //{
-        //    var listVehicleBrands = from VehicleBrands vb in Enum.GetValues(typeof(VehicleBrands))
-        //                            select new SelectListItem
-        //                            {
-        //                                Value = ((int)vb).ToString(),
-        //                                Text = Enum.GetName(typeof(VehicleBrands), vb),
-        //                                Selected = true /*Brands == (int)vb ? true : false*/
-        //                            };
-        //    ListBrands = listVehicleBrands.ToList();
-        //}
     }
 }

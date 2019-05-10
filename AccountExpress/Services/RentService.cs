@@ -35,7 +35,9 @@ namespace AccountExpress.Services
             Vehicle vehicle = _vehicleRepository.GetById(rent.VehicleId);
             vehicle.isRented = true;
 
+            _vehicleRepository.Update(vehicle);
             _rentRepository.Add(rent);
+
             return rent;
         }
 
@@ -45,6 +47,7 @@ namespace AccountExpress.Services
             Vehicle vehicle = _vehicleRepository.GetById(rent.VehicleId);
             vehicle.isRented = false;
 
+            _vehicleRepository.Update(vehicle);
             _rentRepository.Remove(_rentRepository.GetById(id));
         }
 

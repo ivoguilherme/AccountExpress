@@ -9,21 +9,49 @@
         <div class="title-wrapper">
             <div class="row">
                 <div class="col-md-12">
-                    <h4>Excluir Cliente</h4>
+                    <h4>Finalizar Aluguel</h4>
                 </div>
             </div>
         </div>
         <div class="content-box">
             <div class="row">
-                <div class="col-md-8">
-                    <p>Tem certeza de que deseja cancelar o aluguel do veículo <b>@Model.VehicleId</b>, feito pelo cliente <b>@Model.CustomerId</b>? </p>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <p>Deseja realmente encerrar o aluguel?</p>
+                    </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label for="Vehicle">Veículo</label>
+                        <p>@ViewBag.Vehicle.Brands @ViewBag.Vehicle.Model</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Customer">Cliente</label>
+                        <p>@ViewBag.Customer.Name</p>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="Vehicle">Valor Diário</label>
+                        <p>@ViewBag.Daily</p>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="Value">Total da Locação</label>
+                        <p>@ViewBag.Location</p>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
                     <div class="box-btn">
                         <form asp-action="Finalize">
                             <input type="hidden" asp-for="Id" />
                             <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
-                            <button type="submit" class="btn btn-danger"><i class="fas fa-times"></i> Apagar</button>
+                            <button type="submit" class="btn btn-success"><i class="fas fa-dollar-sign"></i> Finalizar</button>
                         </form>
                     </div>
                 </div>

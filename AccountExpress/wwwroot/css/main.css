@@ -382,6 +382,7 @@ aside {
         }
 
 .box-btn {
+    margin-top: 15px;
     text-align: right;
 }
 
@@ -412,15 +413,16 @@ aside {
 }
 
 .tb-customers th:nth-child(3) {
-    width: 10%;
+    width: 20%;
 }
 
 .tb-customers th:nth-child(4) {
-    width: 15%;
+    width: 20%;
 }
 
-.tb-customers th:nth-child(5) {
-    width: 14%;
+.tb-customers :nth-child(5) {
+    min-width: 130px;
+    width: 10%;
 }
 
 
@@ -447,10 +449,6 @@ aside {
     width: 15%;
 }
 
-/*
-    TABLE GENERAL
-*/
-.tb-customers :nth-child(6),
 .tb-vehicles th:nth-child(6) {
     min-width: 130px;
     width: 10%;

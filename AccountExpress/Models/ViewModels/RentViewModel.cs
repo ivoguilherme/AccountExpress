@@ -18,9 +18,9 @@ namespace AccountExpress.ViewModels
         public DateTime PickupDate { get; set; }
         public DateTime ReturnDate { get; set; }
         public string TypeOfRent { get; set; }
-        public RentType TypeOfRentEnum { get; set; } // criei esse cara so para quando viewmodel virar model
+        public RentType TypeOfRentEnum { get; set; }
         public double Daily { get; set; }
-        public double Discount { get; set; }
+        public double Location { get; set; }
 
 
     }
@@ -42,7 +42,7 @@ namespace AccountExpress.ViewModels
                 TypeOfRent = rent.TypeOfRent.ObterDescricao(),
                 TypeOfRentEnum = rent.TypeOfRent,
                 Daily = rent.Daily,
-                Discount = rent.Discount
+                Location = rent.Location
             };
 
             return rentVM;
@@ -59,7 +59,7 @@ namespace AccountExpress.ViewModels
             rent.ReturnDate = rentVM.ReturnDate;
             rent.TypeOfRent = rentVM.TypeOfRentEnum;
             rent.Daily = rentVM.Daily;
-            rent.Discount = rentVM.Discount;
+            rent.Location = rentVM.Location;
 
             return rent;
         }

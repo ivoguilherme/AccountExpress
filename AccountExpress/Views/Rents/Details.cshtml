@@ -8,57 +8,64 @@
     <div class="box">
         <div class="title-wrapper">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <h4>Informações do Aluguel</h4>
-                </div>
-                <div class="col-md-6">
-                    <div class="box-btn">
-                        <div>
-                            <a asp-action="Index" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
-                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info"><i class="fas fa-pen"></i> Editar</a>
-                            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"><i class="fas fa-times"></i> Apagar</a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-        <hr />
         <div class="content-box">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
-                        <label for="IdCustomers">Cliente</label>
+                        <label for="Customer">Cliente</label>
                         <p>@ViewBag.Customer</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                     <div class="form-group">
-                        <label for="IdVehicles">Veículo</label>
+                        <label for="Vehicle">Veículo</label>
                         <p>@ViewBag.Vehicle</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
+                        <label for="Daily">Valor da Diária</label>
+                        <p>@ViewBag.Daily</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="Vehicle">Valor da Locação</label>
+                        <p>@ViewBag.Location</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
                         <label for="PickupDate">Data de Retirada</label>
-                        <p>@Html.DisplayFor(model => model.PickupDate)</p>
+                        <p>@ViewBag.PickupDate</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="ReturnDate">Data de Devolução</label>
-                        <p>@Html.DisplayFor(model => model.ReturnDate)</p>
+                        <p>@ViewBag.ReturnDate</p>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label for="TypeOfRent">Typo de Aluguel</label>
-                        <p>@Html.DisplayFor(model => model.TypeOfRent)</p>
+                        <label for="TypeOfRent">Tipo de Aluguel</label>
+                        <p>@ViewBag.TypeOfRent</p>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="Daily">Diária</label>
-                        <p>@Html.DisplayFor(model => model.Daily)</p>
+
+                <div class="col-md-12">
+                    <div class="box-btn">
+                        <div>
+                            <a asp-action="Index" class="btn btn-dark"><i class="fas fa-undo-alt"></i> Voltar</a>
+                            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info"><i class="fas fa-pen"></i> Editar</a>
+                            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"><i class="fas fa-times"></i> Apagar</a>
+                            <a asp-action="Finalize" asp-route-id="@Model.Id" class="btn btn-success"><i class="fas fa-dollar-sign"></i> Finalizar</a>
+                        </div>
                     </div>
                 </div>
             </div>

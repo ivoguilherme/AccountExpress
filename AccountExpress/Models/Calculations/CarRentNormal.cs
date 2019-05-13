@@ -11,7 +11,7 @@ namespace AccountExpress.Models.Calculations
             TimeSpan date = rent.ReturnDate - rent.PickupDate;
 
             // Cálculo Normal: Valor Diária * Quantidade de dias
-            double result = rent.Daily * date.TotalDays;
+            double result = rent.Daily * (date.TotalDays + 1);
 
             return result;
         }

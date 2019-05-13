@@ -12,7 +12,7 @@ namespace AccountExpress.Models.Enums
         Normal,
         [Description("Promocional (5% desc)")]
         Promocional,
-        [Description("Primeiro Aluguel (10% desc)")]
+        [Description("Primeiro Aluguel (15% desc)")]
         ClienteNovo
     }
 }

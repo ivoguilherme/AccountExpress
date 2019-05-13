@@ -29,6 +29,10 @@ namespace AccountExpress.Controllers
         {
             IEnumerable<Rent> rentsModel = _rentService.GetWithCustomerAndVehicles();
             var rentsViewModel = rentsModel.Select(rent => RentMapper.ModelToViewModel(rent)).ToArray();
+
+            ViewBag.PickupDate = rentsViewModel.Select(pd => pd.PickupDate).FirstOrDefault().ToString("dd/MM/yyyy");
+            ViewBag.ReturnDate = rentsViewModel.Select(pd => pd.ReturnDate).FirstOrDefault().ToString("dd/MM/yyyy");
+
             return View(rentsViewModel);
         }
 
@@ -37,6 +41,11 @@ namespace AccountExpress.Controllers
         {
             ViewBag.Customer = _customerService.Get().FirstOrDefault(c => c.Id == _rentService.Get(id).CustomerId).Name;
             ViewBag.Vehicle = _vehicleService.Get().FirstOrDefault(v => v.Id == _rentService.Get(id).VehicleId).Model;
+            ViewBag.TypeOfRent = _rentService.Get().FirstOrDefault(v => v.Id == _rentService.Get(id).Id).TypeOfRent.ObterDescricao();
+            ViewBag.PickupDate = _rentService.Get().FirstOrDefault(v => v.Id == _rentService.Get(id).Id).PickupDate.ToString("dd/MM/yyyy");
+            ViewBag.ReturnDate = _rentService.Get().FirstOrDefault(v => v.Id == _rentService.Get(id).Id).ReturnDate.ToString("dd/MM/yyyy");
+            ViewBag.Daily = String.Format("{0:C}", _rentService.Get().FirstOrDefault(d => d.Id == _rentService.Get(id).Id).Daily);
+            ViewBag.Location = String.Format("{0:C}", _rentService.Get().FirstOrDefault(d => d.Id == _rentService.Get(id).Id).Location);
 
             return View(_rentService.Get(id));
         }
@@ -72,7 +81,7 @@ namespace AccountExpress.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 var teste = e.Message;
                 return View();
@@ -107,7 +116,7 @@ namespace AccountExpress.Controllers
             {
                 _rentService.Put(rent);
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), new { id = id});
             }
             catch (Exception ex)
             {
@@ -118,6 +127,9 @@ namespace AccountExpress.Controllers
         // GET: Rent/Delete/5
         public ActionResult Delete(int id)
         {
+            ViewBag.Customer = _customerService.Get().FirstOrDefault(c => c.Id == _rentService.Get(id).CustomerId);
+            ViewBag.Vehicle = _vehicleService.Get().FirstOrDefault(v => v.Id == _rentService.Get(id).VehicleId);
+
             return View(_rentService.Get(id));
         }
 
@@ -141,6 +153,11 @@ namespace AccountExpress.Controllers
         // GET: Finalize
         public ActionResult Finalize(int id)
         {
+            ViewBag.Customer = _customerService.Get().FirstOrDefault(c => c.Id == _rentService.Get(id).CustomerId);
+            ViewBag.Vehicle = _vehicleService.Get().FirstOrDefault(v => v.Id == _rentService.Get(id).VehicleId);
+            ViewBag.Daily = String.Format("{0:C}", _rentService.Get().FirstOrDefault(d => d.Id == _rentService.Get(id).Id).Daily);
+            ViewBag.Location = String.Format("{0:C}", _rentService.Get().FirstOrDefault(d => d.Id == _rentService.Get(id).Id).Location);
+
             return View(_rentService.Get(id));
         }
 

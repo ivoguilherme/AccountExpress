@@ -8,8 +8,6 @@ namespace AccountExpress.Interfaces.Services
 {
     public interface ICarRent
     {
-        //double Calculate(double daily, DateTime pickupDate, DateTime returnDate);
-
         double Calculate(Rent rent);
     }
 }

@@ -36,9 +36,6 @@
                             Devolução
                         </th>
                         <th>
-                            Tipo de Aluguel
-                        </th>
-                        <th>
                             Ações
                         </th>
                     </tr>
@@ -54,13 +51,10 @@
                                 @Html.DisplayFor(modelItem => item.Vehicle.Model)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.PickupDate)
+                                @ViewBag.PickupDate
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.ReturnDate)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.TypeOfRent)
+                                @ViewBag.ReturnDate
                             </td>
                             <td>
                                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fas fa-info"></i> Detalhes</a>

@@ -170,7 +170,7 @@ namespace AccountExpress.Controllers
             {
                 _vehicleService.Put(vehicle);
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), new { id = id });
             }
             catch
             {

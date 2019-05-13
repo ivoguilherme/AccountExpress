@@ -24,6 +24,8 @@ namespace AccountExpress.Controllers
         // GET: Customers/Details/5
         public ActionResult Details(int id)
         {
+            @ViewBag.DateOfBirth = _customerService.Get(id).DateOfBirth.ToString("dd/MM/yyyy");
+
             return View(_customerService.Get(id));
         }
 
@@ -67,7 +69,7 @@ namespace AccountExpress.Controllers
             {
                 _customerService.Put(customer);
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Details), new { id = id });
             }
             catch
             {

@@ -10,7 +10,9 @@ namespace AccountExpress.Services
     {
         private readonly IRentRepository _rentRepository;
         private readonly IVehicleRepository _vehicleRepository;
-        private CarRentNormal normal = new CarRentNormal();
+        private readonly CarRentNormal calcNormal = new CarRentNormal();
+        private CarRentPromotional calcPromotional = new CarRentPromotional();
+        private CarRentFirstLocation calcFirstLocation = new CarRentFirstLocation();
 
         public RentService(IRepository<Rent> repository, IRentRepository rentRepository, IVehicleRepository vehicleRepository) : base(repository)
         {
@@ -32,9 +34,22 @@ namespace AccountExpress.Services
 
         public override Rent Post(Rent rent)
         {
+            switch (rent.TypeOfRent.ToString())
+            {
+                case "Normal":
+                    rent.Location = calcNormal.Calculate(rent);
+                    break;
+                case "Promocional":
+                    rent.Location = calcPromotional.Calculate(rent);
+                    break;
+                case "ClienteNovo":
+                    rent.Location = calcFirstLocation.Calculate(rent);
+                    break;
+            }
+
             Vehicle vehicle = _vehicleRepository.GetById(rent.VehicleId);
             vehicle.isRented = true;
-
+            
             _vehicleRepository.Update(vehicle);
             _rentRepository.Add(rent);
 
@@ -64,6 +79,19 @@ namespace AccountExpress.Services
                 vehicleOld.isRented = false;
                 _vehicleRepository.Update(vehicleNew);
                 _vehicleRepository.Update(vehicleOld);
+            }
+
+            switch (rent.TypeOfRent.ToString())
+            {
+                case "Normal":
+                    rent.Location = calcNormal.Calculate(rent);
+                    break;
+                case "Promocional":
+                    rent.Location = calcPromotional.Calculate(rent);
+                    break;
+                case "ClienteNovo":
+                    rent.Location = calcFirstLocation.Calculate(rent);
+                    break;
             }
 
             return _rentRepository.Update(rent);

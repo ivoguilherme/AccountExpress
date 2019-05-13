@@ -15,10 +15,10 @@
         </div>
         <div class="content-box">
             <div class="row">
-                <div class="col-md-8">
-                    <p>Tem certeza de que deseja cancelar o aluguel do veículo <b>@Model.VehicleId</b>, feito pelo cliente <b>@Model.CustomerId</b>? </p>
+                <div class="col-md-12">
+                    <p>Tem certeza de que deseja cancelar o aluguel do veículo <b>@ViewBag.Vehicle.Brands @ViewBag.Vehicle.Model</b>, feito pelo cliente <b>@ViewBag.Customer.Name</b>? </p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="box-btn">
                         <form asp-action="Delete">
                             <input type="hidden" asp-for="Id" />

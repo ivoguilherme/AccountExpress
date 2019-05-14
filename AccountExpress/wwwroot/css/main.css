@@ -20,7 +20,6 @@ select {
         box-shadow: 0 0 0 0.2rem rgba(28, 201, 165, .25) !important;
     }
 
-
 option {
 }
 
@@ -42,6 +41,7 @@ label {
 }
 
 table {
+    min-width: 1000px;
     margin-bottom: 0px !important;
 }
 
@@ -61,6 +61,9 @@ table {
         border-bottom: 1px solid #dee2e6;
     }
 
+.overflow-x {
+    overflow-x: auto;
+}
 
 
 /*
@@ -71,8 +74,8 @@ nav {
     background-color: #545454;
     border-bottom: 3px solid #18af8f;
     position: fixed !important;
-    padding: 5px 0 !important;
-    max-height: 40px;
+    padding: 5px 0px 0px !important;
+    min-height: 53px;
     top: 0;
     left: 0;
     right: 0;
@@ -95,13 +98,29 @@ nav {
         padding: 0 !important;
     }
 
+    nav button {
+        display: none;
+        margin-right: 15px;
+        margin-bottom: 5px;
+    }
+
+.navbar-collapse {
+    background-color: rgb(24, 175, 143);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    padding-left: 30px;
+    font-size: 1.3rem;
+    color: rgba(255,255,255,1) !important;
+}
+
 aside {
     background-color: #ececec;
     box-shadow: 0px 0px 5px -3px #333;
     font-weight: 500;
     position: fixed;
     width: 200px;
-    top: 40px;
+    top: 53px;
     bottom: 0;
     left: 0;
     color: #555 !important;
@@ -136,6 +155,7 @@ aside {
 
     aside .navigation {
         height: calc(100% - 175px);
+        overflow-y: auto;
     }
 
     aside ul {
@@ -260,10 +280,11 @@ aside {
 
 .wrapper {
     position: fixed;
-    top: 40px;
+    top: 53px;
     left: 200px;
     width: calc(100% - 200px);
     height: calc(100% - 40px);
+    overflow-y: auto;
 }
 
     .wrapper .container-fluid {
@@ -275,6 +296,7 @@ aside {
             background-color: #fff;
             border-bottom: 2px solid #ced4da;
             color: #555;
+            margin-bottom: 15px;
         }
 
         .wrapper .container-fluid .box {
@@ -404,7 +426,7 @@ aside {
 /*
     TABLE CUSTOMERS
 */
-.tb-customers th:nth-child(1) {
+/*.tb-customers th:nth-child(1) {
     width: 25%;
 }
 
@@ -423,17 +445,18 @@ aside {
 .tb-customers :nth-child(5) {
     min-width: 130px;
     width: 10%;
-}
+}*/
 
 
 /*
     TABLE VEHICLES
 */
-.tb-vehicles th:nth-child(1) {
+/*.tb-vehicles th:nth-child(1) {
     width: 20%;
 }
 
 .tb-vehicles th:nth-child(2) {
+    width: 25%;
     width: 25%;
 }
 
@@ -452,4 +475,82 @@ aside {
 .tb-vehicles th:nth-child(6) {
     min-width: 130px;
     width: 10%;
+}*/
+
+/*
+    RESPONSIVE
+*/
+
+@media (max-width: 575.98px) {
+    w-100 {
+        width: 100%;
+    }
+
+    body {
+        background-color: #fff;
+    }
+
+    aside {
+        display: none;
+        visibility: hidden;
+        opacity: 0;
+        left: -200px;
+    }
+
+    .box {
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    .wrapper {
+        left: 0px;
+        width: 100%;
+    }
+
+        .wrapper .title-wrapper {
+            padding: 0px;
+        }
+
+        .wrapper .container-fluid {
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+            .wrapper .container-fluid .content-box {
+                padding: 0px;
+                padding-top: 15px;
+            }
+
+            .wrapper .container-fluid .box {
+                padding: 0px;
+                background-color: transparent;
+                border-bottom: none;
+            }
+
+    .title-wrapper > h4 {
+        margin-bottom: 15px !important;
+    }
+
+    nav #logo {
+        text-align: left;
+        padding-left: 15px;
+    }
+
+    nav button {
+        display: block;
+    }
+
+    .box-btn-sm {
+        font-size: .875rem !important;
+        text-align: center !important;
+    }
+
+        .box-btn-sm a i {
+            display: block !important;
+        }
+
+    .wrapper .container-fluid .mini-box .content-box {
+        background-color: #efefef;
+        padding: 15px;
+    }
 }

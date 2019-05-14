@@ -15,6 +15,11 @@ namespace AccountExpress.Services
         {
             _repository = repository;
         }
+        
+        public virtual TEntity Post(TEntity obj)
+        {
+            return _repository.Add(obj);
+        }
 
         public virtual void Delete(int id)
         {
@@ -31,10 +36,6 @@ namespace AccountExpress.Services
             return _repository.GetAll();
         }
 
-        public virtual TEntity Post(TEntity obj)
-        {
-            return _repository.Add(obj);
-        }
 
         public virtual TEntity Put(TEntity obj)
         {

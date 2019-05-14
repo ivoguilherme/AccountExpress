@@ -6,15 +6,40 @@
 
     <link rel="stylesheet" href="~/lib/fontawesome/css/all.css">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="~/css/simplebar.css">
     <link rel="stylesheet" href="~/css/main.css">
     <title>@ViewData["Title"] Vehicle Express</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-dark">
         <div id="logo">
             <a class="navbar-brand" href="@Url.Action("Index", "Overview" , null)">Vehicle Express</a>
         </div>
+
+        <!--TESTE-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse" id="navbar" style="">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Overview" , null)"><i class="far fa-chart-bar"></i> Visão Geral</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Vehicles" , null)"><i class="far fa-id-card"></i> Veículos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Customers" , null)"><i class="far fa-user"></i> Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Rents" , null)"><i class="far fa-handshake"></i> Aluguéis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="far fa-sun"></i> Configurações</a>
+                </li>
+            </ul>
+        </div>
+        <!--TESTE-->
     </nav>
     <aside>
         <div id="profile">
@@ -25,7 +50,7 @@
                 <span>Ivo Guilherme</span>
             </div>
         </div>
-        <div data-simplebar class="navigation">
+        <div class="navigation">
             <ul>
                 <li>
                     <a href="@Url.Action("Index", "Overview" , null)">
@@ -76,7 +101,7 @@
             </div>
         </div>
     </aside>
-    <div data-simplebar class="wrapper">
+    <div class="wrapper">
         <div class="container-fluid">
             <div class="row">
 
@@ -88,7 +113,6 @@
 
     <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/simplebar/simplebar.js"></script>
     <script src="~/js/jquery.maskMoney.js"></script>
     <script src="~/js/script.js"></script>
 </body>

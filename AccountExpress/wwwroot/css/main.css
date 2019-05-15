@@ -509,10 +509,11 @@ aside {
 
         .wrapper .title-wrapper {
             padding: 0px;
+            margin-bottom: 15px;
         }
 
         .wrapper .container-fluid {
-            padding: 15px;
+            padding: 30px 15px;
             margin-bottom: 15px;
         }
 
@@ -527,8 +528,12 @@ aside {
                 border-bottom: none;
             }
 
-    .title-wrapper > h4 {
+    .title-wrapper h4 {
         margin-bottom: 15px !important;
+    }
+
+    .title-wrapper > h4 {
+        margin-bottom: 30px !important;
     }
 
     nav #logo {

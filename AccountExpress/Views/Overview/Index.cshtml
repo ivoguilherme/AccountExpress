@@ -16,11 +16,11 @@
 
         </div>
         <div class="content-box">
-            <p>Cadastrados<span class="badge">5</span></p>
+            <p>Cadastrados<span class="badge">@ViewBag.TotalVehicles</span></p>
             <hr />
-            <p>Disponíveis<span class="badge">2</span></p>
+            <p>Disponíveis<span class="badge">@ViewBag.AvailableVehicles</span></p>
             <hr />
-            <p>Indisponíveis<span class="badge">3</span></p>
+            <p>Indisponíveis<span class="badge">@ViewBag.UnavailableVehicles</span></p>
         </div>
     </div>
 </div>
@@ -31,11 +31,7 @@
 
         </div>
         <div class="content-box">
-            <p>Cadastrados<span class="badge">5</span></p>
-            <hr />
-            <p>Ativos<span class="badge">2</span></p>
-            <hr />
-            <p>Inativos<span class="badge">3</span></p>
+            <p>Cadastrados<span class="badge">@ViewBag.TotalCustomers</span></p>
         </div>
     </div>
 </div>
@@ -46,11 +42,7 @@
 
         </div>
         <div class="content-box">
-            <p>Realizados<span class="badge">5</span></p>
-            <hr />
-            <p>Cancelados<span class="badge">2</span></p>
-            <hr />
-            <p>Em andamento<span class="badge">3</span></p>
+            <p>Em andamento<span class="badge">@ViewBag.TotalRents</span></p>
         </div>
     </div>
 </div>

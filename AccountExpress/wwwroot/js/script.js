@@ -3,10 +3,10 @@ $nav.click(function () {
     $(this).toggleClass("nav-active");
 });
 
-function OpenModalEditCustomer(id) {
-    $("#editCustomerManager").load("Customers/Edit?id=" + id, function () {
-        $("#editCustomerManager").modal();
-    });
-}
+$(document).ready(function () {
 
-$(".maskMoney").maskMoney({ prefix: 'R$ ', allowNegative: true, thousands: '.', decimal: ',', affixesStay: false });
+    $(".maskMoney").maskMoney({ prefix: 'R$ ', allowNegative: true, thousands: '.', decimal: ',', affixesStay: false });
+
+
+
+});

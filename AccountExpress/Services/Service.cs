@@ -15,7 +15,7 @@ namespace AccountExpress.Services
         {
             _repository = repository;
         }
-        
+
         public virtual TEntity Post(TEntity obj)
         {
             return _repository.Add(obj);
@@ -35,7 +35,6 @@ namespace AccountExpress.Services
         {
             return _repository.GetAll();
         }
-
 
         public virtual TEntity Put(TEntity obj)
         {

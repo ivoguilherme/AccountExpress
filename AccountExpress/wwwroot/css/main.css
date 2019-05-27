@@ -404,7 +404,6 @@ aside {
         }
 
 .box-btn {
-    margin-top: 15px;
     text-align: right;
 }
 
@@ -423,63 +422,19 @@ aside {
         border-color: #0d7761 !important;
     }
 
-/*
-    TABLE CUSTOMERS
-*/
-/*.tb-customers th:nth-child(1) {
-    width: 25%;
+@media (max-width: 767.98px) {
+    .wrapper .title-wrapper {
+        padding: 15px 0px;
+    }
+
+    .wrapper .container-fluid .content-box {
+        padding: 0px;
+    }
+
+    .wrapper .box-btn {
+        margin-top: 15px;
+    }
 }
-
-.tb-customers th:nth-child(2) {
-    width: 25%;
-}
-
-.tb-customers th:nth-child(3) {
-    width: 20%;
-}
-
-.tb-customers th:nth-child(4) {
-    width: 20%;
-}
-
-.tb-customers :nth-child(5) {
-    min-width: 130px;
-    width: 10%;
-}*/
-
-
-/*
-    TABLE VEHICLES
-*/
-/*.tb-vehicles th:nth-child(1) {
-    width: 20%;
-}
-
-.tb-vehicles th:nth-child(2) {
-    width: 25%;
-    width: 25%;
-}
-
-.tb-vehicles th:nth-child(3) {
-    width: 15%;
-}
-
-.tb-vehicles th:nth-child(4) {
-    width: 15%;
-}
-
-.tb-vehicles th:nth-child(5) {
-    width: 15%;
-}
-
-.tb-vehicles th:nth-child(6) {
-    min-width: 130px;
-    width: 10%;
-}*/
-
-/*
-    RESPONSIVE
-*/
 
 @media (max-width: 575.98px) {
     w-100 {
@@ -543,6 +498,10 @@ aside {
 
     nav button {
         display: block;
+    }
+
+    .box-btn {
+        margin-top: 0px !important;
     }
 
     .box-btn-sm {

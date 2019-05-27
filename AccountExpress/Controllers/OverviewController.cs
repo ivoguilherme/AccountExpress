@@ -22,8 +22,8 @@ namespace AccountExpress.Controllers
         public IActionResult Index()
         {
             ViewBag.TotalVehicles = _vehicleService.Get().Count();
-            ViewBag.AvailableVehicles = _vehicleService.Get().Where(dv => dv.isRented == false).Count();
-            ViewBag.UnavailableVehicles = _vehicleService.Get().Where(dv => dv.isRented == true).Count();
+            ViewBag.AvailableVehicles = _vehicleService.Get().Count(dv => dv.isRented == false);
+            ViewBag.UnavailableVehicles = _vehicleService.Get().Count(dv => dv.isRented == true);
 
             ViewBag.TotalCustomers = _customerService.Get().Count();
 
